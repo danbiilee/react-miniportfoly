@@ -9,6 +9,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "axios": "^0.21.0",
+    "gh-pages": "^3.1.0",
     "immer": "^8.0.0",
     "react": "^17.0.1",
     "react-datepicker": "^3.3.0",
@@ -26,7 +27,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +49,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://localhost:4000"
+  "homepage": "https://danbiilee.github.io/react-miniportfoly"
 }
