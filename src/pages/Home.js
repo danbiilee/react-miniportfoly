@@ -83,6 +83,7 @@ const ProfileSection = styled.section`
   .my-sex,
   .my-brthdy {
     color: #9e9e9e;
+    font-size: 0.85rem;
   }
   .my-sex {
     font-size: 0.8rem;
@@ -97,7 +98,7 @@ const LinkTitle = styled.p`
 `;
 
 const Home = () => {
-  const goOuterSite = () => {
+  const goGithub = () => {
     window.location.href = 'https://github.com/danbiilee';
   };
 
@@ -111,7 +112,7 @@ const Home = () => {
                 src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
                 alt="profile"
               />
-              <LinkTitle onClick={goOuterSite}>Github</LinkTitle>
+              <LinkTitle onClick={goGithub}>Github</LinkTitle>
             </ProfileSection>
             <ProfileSection>
               <p>
