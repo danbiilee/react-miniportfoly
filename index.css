@@ -1,0 +1,14 @@
+body {
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: 100vh; */
+  height: 100%;
+  padding: 20px 0;
+  background: gray;
+}
+
+#root {
+  width: 100%;
+}
