@@ -5,8 +5,15 @@ import Sidebar from '../components/Layout/Sidebar';
 import Content from '../components/Layout/Content';
 import Card from '../components/Layout/Card';
 import MainMenu from '../components/Menu/MainMenu';
+import { MdMailOutline, MdLocationOn, MdPhoneIphone } from 'react-icons/md';
 
-// section in Content
+const FlexWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`;
+
 const ContentSection = styled.section`
   height: fit-content !important;
   h2 {
@@ -43,45 +50,89 @@ const ContentSection = styled.section`
 const ProfileSection = styled.section`
   height: fit-content !important;
   &:first-of-type {
-    p:first-of-type {
-      margin-top: 10px;
+    p {
+      margin: 10px 0;
     }
   }
   &:last-of-type {
+    padding-top: 10px;
     border-top: 1px dashed gray;
+    font-size: 0.9rem;
+    p {
+      display: flex;
+      align-items: center;
+      &:not(:first-of-type) {
+        margin: 5px 0;
+      }
+    }
+    svg {
+      margin-right: 3px;
+      color: #666;
+    }
   }
   img {
     width: 100%;
     height: auto;
     object-fit: cover;
   }
+  .my-name {
+    color: ${props => props.theme.layout.mainColor};
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  .my-sex,
+  .my-brthdy {
+    color: #9e9e9e;
+  }
+  .my-sex {
+    font-size: 0.8rem;
+  }
+`;
+
+const LinkTitle = styled.p`
+  &:hover {
+    color: ${props => props.theme.layout.mainColor};
+  }
+  cursor: pointer;
 `;
 
 const Home = () => {
+  const goOuterSite = () => {
+    window.location.href = 'https://github.com/danbiilee';
+  };
+
   return (
     <Layout>
       <Sidebar>
         <Card>
-          <ProfileSection>
-            <img
-              src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
-              alt="profile"
-            />
-            <p>주니어 개발자</p>
-            <p>
-              HTML5, CSS3, SCSS, JS, REACT, VUE, NODE, MONGODB, JAVA, ORACLE,
-              MYSQL, GIT
-            </p>
-          </ProfileSection>
-          <ProfileSection>
-            <p>
-              이단비 <span>(♀) 1992.08.19</span>
-            </p>
-            <p>danbi.db@gmail.com</p>
-            <p>https://github.com/danbiilee</p>
-            <p>010-4013-4147</p>
-            <p>경기도 안양시</p>
-          </ProfileSection>
+          <FlexWrapper>
+            <ProfileSection>
+              <img
+                src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
+                alt="profile"
+              />
+              <LinkTitle onClick={goOuterSite}>Github</LinkTitle>
+            </ProfileSection>
+            <ProfileSection>
+              <p>
+                <span className="my-name">이단비</span>
+                <span className="my-sex">(♀)</span>
+                <span className="my-brthdy">1992.08.19</span>
+              </p>
+              <p>
+                <MdMailOutline />
+                danbi.db@gmail.com
+              </p>
+              <p>
+                <MdPhoneIphone />
+                010-4013-4147
+              </p>
+              <p>
+                <MdLocationOn />
+                경기도 안양시
+              </p>
+            </ProfileSection>
+          </FlexWrapper>
         </Card>
       </Sidebar>
       <Content>
