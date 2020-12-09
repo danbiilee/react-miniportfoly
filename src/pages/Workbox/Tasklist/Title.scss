@@ -1,0 +1,148 @@
+@import '../../utils/utils.scss';
+
+.Title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  @include background('Tasklist-title');
+  h3 {
+    width: 70%;
+    font-weight: 500;
+  }
+  .btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 30%;
+    font-size: 1.2rem;
+    svg {
+      margin-left: 8px;
+      &:nth-child(2) {
+        margin-left: 10px;
+        font-size: 1.3rem;
+      }
+      &:nth-child(3) {
+        font-size: 1.5rem;
+      }
+      &:hover {
+        background: #4c30a1;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.create-wrapper {
+  display: none;
+  width: 100%;
+  margin-top: 10px;
+  &.isActive {
+    display: block;
+  }
+  textarea {
+    width: 100%;
+    height: 65px;
+    padding: 5px 7px;
+    border: 2px solid $cyan;
+    border-radius: 3px;
+    border-bottom: 0;
+    outline: 0;
+    resize: none;
+  }
+  .cr-btn-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: -3px;
+    padding: 5px;
+    background: white;
+    border: 2px solid $cyan;
+    border-radius: 3px;
+    border-top: 0;
+    &.onDate {
+      position: relative;
+      padding-bottom: 35px;
+      .cr-btn-r {
+        position: absolute;
+        right: 5px;
+        top: 35px;
+      }
+    }
+    .cr-btn-l {
+      display: flex;
+      align-items: center;
+      color: $gray-dark;
+      font-size: 1rem;
+      & > div {
+        margin: 2px 5px 0 0;
+      }
+      & > svg {
+        margin-right: 7px;
+        cursor: pointer;
+        &:first-of-type {
+          font-size: 1.2rem;
+        }
+        &:hover {
+          color: #656a70;
+          cursor: pointer;
+        }
+      }
+    }
+    button {
+      padding: 3px 8px;
+      border-radius: 3px;
+      font-size: 0.78rem;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .btn-cancel {
+      color: #70767c;
+      &:hover {
+        background: #ccc;
+      }
+    }
+    .btn-create {
+      margin-left: 5px;
+      background: $cyan;
+      color: white;
+      &:hover {
+        background: #148c9d;
+      }
+    }
+  }
+}
+
+.badge-wrapper {
+  position: relative;
+  .badge {
+    position: absolute;
+    right: 0;
+    top: -6px;
+    z-index: 10;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.5rem;
+    &.mber {
+      background: #6f777e;
+    }
+    &.priority {
+      background: $red;
+    }
+    &.important {
+      background: $blue;
+    }
+    &.notice {
+      background: $yellow;
+    }
+  }
+}
+
+.tasklist-doing {
+  padding: 6px 10px;
+  @include background('tasklist-doing');
+  font-size: 0.75rem;
+}

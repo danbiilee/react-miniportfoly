@@ -1,0 +1,54 @@
+@import '../../utils/utils.scss';
+
+.Task {
+  margin-top: 3px;
+  padding: 20px 15px;
+  @include background('Task');
+  &:hover {
+    background: $oc-gray-1;
+    cursor: pointer;
+  }
+  &.done {
+    display: none;
+    background: $oc-gray-1;
+    &.isActive {
+      display: block;
+    }
+  }
+
+  .task-title-wrapper {
+    display: flex;
+    margin-bottom: 15px;
+    h4 {
+      display: flex;
+      align-items: center;
+      width: 82%;
+      margin-top: 10px;
+      svg {
+        margin-right: 5px;
+        color: $gray-middle;
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .etc-wrapper {
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 3px;
+    color: $gray-dark;
+    font-size: 0.7rem;
+    span {
+      display: inherit;
+      margin-right: 10px;
+      &:not(:last-of-type) svg {
+        margin-right: 4px;
+      }
+    }
+  }
+  .mber-list {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 1.5rem;
+  }
+}
