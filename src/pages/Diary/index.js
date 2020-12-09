@@ -154,7 +154,8 @@ const Diary = () => {
                       <div className="post-contents">
                         <img
                           src={
-                            process.env.PUBLIC_URL + 'resources/img/profile.jpg'
+                            process.env.PUBLIC_URL +
+                            '/resources/img/profile.jpg'
                           }
                           alt="profile"
                         />
@@ -170,7 +171,8 @@ const Diary = () => {
                       <div className="post-contents">
                         <img
                           src={
-                            process.env.PUBLIC_URL + 'resources/img/profile.jpg'
+                            process.env.PUBLIC_URL +
+                            '/resources/img/profile.jpg'
                           }
                           alt="profile"
                         />

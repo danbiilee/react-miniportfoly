@@ -13,8 +13,8 @@ const App = () => {
   return (
     <ThemeProvider
       theme={{
-        layout, 
-        component
+        layout,
+        component,
       }}
     >
       <Switch>

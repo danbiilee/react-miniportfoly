@@ -64,7 +64,7 @@ const Home = () => {
         <Card>
           <ProfileSection>
             <img
-              src={process.env.PUBLIC_URL + 'resources/img/profile.jpg'}
+              src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
               alt="profile"
             />
             <p>주니어 개발자</p>
