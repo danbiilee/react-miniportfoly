@@ -5,7 +5,7 @@ import Sidebar from '../components/Layout/Sidebar';
 import Content from '../components/Layout/Content';
 import Card from '../components/Layout/Card';
 import MainMenu from '../components/Menu/MainMenu';
-import { MdMailOutline, MdLocationOn, MdPhoneIphone } from 'react-icons/md';
+import { MdLink, MdMailOutline, MdLocationOn, MdPhoneIphone } from 'react-icons/md';
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -49,20 +49,15 @@ const ContentSection = styled.section`
 
 const ProfileSection = styled.section`
   height: fit-content !important;
-  &:first-of-type {
-    p {
-      margin: 10px 0;
-    }
-  }
   &:last-of-type {
-    padding-top: 10px;
+    padding-top: 20px;
     border-top: 1px dashed gray;
-    font-size: 0.9rem;
+    //font-size: 0.9rem;
     p {
       display: flex;
       align-items: center;
       &:not(:first-of-type) {
-        margin: 5px 0;
+        margin: 10px 0;
       }
     }
     svg {
@@ -76,6 +71,7 @@ const ProfileSection = styled.section`
     object-fit: cover;
   }
   .my-name {
+    margin-right: 5px;
     color: ${props => props.theme.layout.mainColor};
     font-size: 1rem;
     font-weight: bold;
@@ -86,15 +82,24 @@ const ProfileSection = styled.section`
     font-size: 0.85rem;
   }
   .my-sex {
+    margin-right: 2px;
     font-size: 0.8rem;
   }
 `;
 
 const LinkTitle = styled.p`
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  cursor: pointer;
+  svg {
+    margin-right: 5px;
+    color: #666;
+    font-size: 1.2rem;
+  }
   &:hover {
     color: ${props => props.theme.layout.mainColor};
   }
-  cursor: pointer;
 `;
 
 const Home = () => {
@@ -112,7 +117,7 @@ const Home = () => {
                 src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
                 alt="profile"
               />
-              <LinkTitle onClick={goGithub}>Github</LinkTitle>
+              <LinkTitle onClick={goGithub}><MdLink />Github</LinkTitle>
             </ProfileSection>
             <ProfileSection>
               <p>
