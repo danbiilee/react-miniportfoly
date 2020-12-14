@@ -14,7 +14,7 @@ const ContentBlock = styled.div`
 const Content = ({ children }) => {
   return (
     <ContentBlock>
-      <h1>Danbi Miniportfoly</h1>
+      <h1>귀엽고 깜찍한 미니포트폴리</h1>
       {children}
     </ContentBlock>
   );
