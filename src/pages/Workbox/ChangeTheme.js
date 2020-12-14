@@ -21,13 +21,12 @@ const TabList = styled.ul`
 
 const Tab = styled.li`
   position: absolute;
-  top: 0;
+  top: 1px;
   left: ${props => props.left}px;
   display: block;
   width: 50px;
   height: 50px;
   border: 1px solid #a5a5a5;
-  /* border-bottom: 0; */
   ${props =>
     props.id === props.target &&
     css`
@@ -38,18 +37,19 @@ const Tab = styled.li`
   cursor: pointer;
   &:hover {
     top: -20px;
-    height: 70px;
+    height: 71px;
   }
 `;
 
 const ChangeWrapper = styled.div`
   min-width: 710px;
   border: 1px solid #a5a5a5;
-  border-top: 0;
   border-radius: 0 5px 5px 5px;
   background: ${props => props.color};
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
   .pleasePick {
     padding: 20px;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
     font-weight: bold;
   }
 `;
@@ -145,10 +145,10 @@ const ChangeTheme = () => {
   const dispatch = useDispatch();
   const { layout: palette } = useSelector(state => state.palette);
 
-  // Set tabMenu list
+  // Set tab list
   const tabList = [];
   let index = 1;
-  let left = 0; // + width, margin-left
+  let left = 0; // + tab's width, margin-left
   for (let key in palette) {
     tabList.push({ id: index++, target: key, color: palette[key], left });
     left += 53;
@@ -200,6 +200,7 @@ const ChangeTheme = () => {
     setHexColor(getRandomHexColor());
   };
 
+  // Change layout color 
   const changeLayoutColor = () => {
     dispatch(
       setColor({
@@ -234,6 +235,7 @@ const ChangeTheme = () => {
                   name={target}
                   value={hexColor}
                   onChange={onChange}
+                  title="DON'T PASS ME! PICK ANOTHER COLOR!"
                 />
                 <p>{hexColor}</p>
                 <p>{target}</p>
@@ -269,7 +271,7 @@ const ChangeTheme = () => {
               </PaletteWrapper>
             </ColorWrapper>
           ) : (
-            <div className="pleasePick">변경할 색상의 꼬리표를 선택하세요!</div>
+            <div className="pleasePick">변경할 색상의 탭을 선택하세요!</div>
           )}
         </ChangeWrapper>
       </ThemeWrapper>
