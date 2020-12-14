@@ -90,7 +90,10 @@ const ProfileSection = styled.section`
 const LinkTitle = styled.p`
   display: flex;
   align-items: center;
-  margin: 20px 0;
+  margin: 10px 0;
+  &:first-of-type {
+    margin-top: 20px;
+  }
   cursor: pointer;
   svg {
     margin-right: 5px;
@@ -106,6 +109,9 @@ const Home = () => {
   const goGithub = () => {
     window.location.href = 'https://github.com/danbiilee';
   };
+  const goVelog = () => {
+    window.location.href = 'https://velog.io/@dblee';
+  };
 
   return (
     <Layout>
@@ -118,6 +124,7 @@ const Home = () => {
                 alt="profile"
               />
               <LinkTitle onClick={goGithub}><MdLink />Github</LinkTitle>
+              <LinkTitle onClick={goVelog}><MdLink />dblee.log</LinkTitle>
             </ProfileSection>
             <ProfileSection>
               <p>
