@@ -4,7 +4,6 @@ export const setColor = payload => ({ type: SET_COLOR, payload });
 
 const initialState = {
   layout: {
-    outer: 'gray',
     layoutBorder1: 'black',
     layoutBg1: '#a9d2d9',
     layoutBorder2: '#fff',
