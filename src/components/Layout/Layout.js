@@ -1,7 +1,5 @@
-import React, { useEffect, useRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
 import styled from 'styled-components';
-import { setLayout } from '../../module/layout';
 
 const Wrapper = styled.div`
   padding: 0 20px;
@@ -25,30 +23,10 @@ const BgWrapper = styled.div`
 `;
 
 const Layout = ({ children }) => {
-  const { layout } = useSelector(state => state);
-  const dispatch = useDispatch();
-  const layout1 = useRef();
-  const layout2 = useRef();
-
-  /* useEffect(() => {
-    if(!layout.layout1) {
-      dispatch(setLayout({
-        key: 'layout1',
-        value: layout1.current
-      }));
-    }
-    if(!layout.layout2) {
-      dispatch(setLayout({
-        key: 'layout2',
-        value: layout2.current
-      }));
-    }
-  }, [layout, dispatch, layout1]); */
-
   return (
     <Wrapper>
-      <BorderWrapper ref={layout1}>
-        <BgWrapper ref={layout2}>{children}</BgWrapper>
+      <BorderWrapper>
+        <BgWrapper>{children}</BgWrapper>
       </BorderWrapper>
     </Wrapper>
   );
