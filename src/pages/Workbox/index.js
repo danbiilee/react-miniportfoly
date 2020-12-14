@@ -12,11 +12,33 @@ import TasklistWrapper from './Tasklist';
 
 const IndexWrapper = styled.div`
   display: flex;
+  padding: 50px;
+  border: 50px solid #eeeeeeb8;
+  font-family: 'Black Han Sans', sans-serif;
   img {
     width: 50%;
+    margin-right: 50px;
+  }
+  h3, p {
+    writing-mode: vertical-rl;
+  }
+  h3 {
+    height: fit-content;
+    margin-right: 20px;
+    padding: 10px 5px;
+    background: #000;
+    color: #fff;
+    font-size: 2.5rem;
   }
   p {
-    writing-mode: vertical-rl;
+    line-height: 1.6;
+    font-size: 2rem;
+  }
+  span {
+    color: #666;
+    font-family: 'Kirang Haerang', cursive;
+    font-size: 2.3rem;
+    text-decoration: underline;
   }
 `;
 
@@ -45,10 +67,13 @@ const Workbox = () => {
                   }
                   alt="Workbox Main"
                 />
-                <p>재미난 거 만드는 법</p>
-                <p>첫 번째. 참신한 아이디어 떠올리기</p>
-                <p>두 번째. 구현할 수 있는 능력 보유하기</p>
-                <p>세 번째. 뚝딱뚝..따..ㄱ..ㅇ..뚱땅 만들기</p>
+                <h3>재밌게 토이프로젝트 만드는 방법</h3>
+                <p>첫 번째 <span>참신</span>한 아이디어 떠올리기</p>
+                <p>두 번째 <span>뚱땅뚱땅</span> 만들기</p>
+                <p>세 번째 <span>삽질</span>하기</p>
+                <p>네 번째 <span>뚱땅뚱땅</span> 만들기</p>
+                <p>다섯 번째 <span>삽질</span>하기</p>
+                <p>...</p>
               </IndexWrapper>
             </Route>
             <Route path={`${match.path}/changeTheme`}>
