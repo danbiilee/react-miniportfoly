@@ -1,3 +1,5 @@
+import init from './init';
+
 const SET_COLOR = 'palette/SET_COLOR';
 
 export const setColor = payload => ({ type: SET_COLOR, payload });
@@ -28,8 +30,8 @@ export default function palette(state = initialState, action) {
       const { key, value } = action.payload;
       return {
         ...state,
-        palette: {
-          ...state.palette,
+        layout: {
+          ...state.layout,
           [key]: value,
         },
       };
