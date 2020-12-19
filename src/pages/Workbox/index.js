@@ -9,6 +9,7 @@ import MainMenu from '../../components/Menu/MainMenu';
 import SubMenu from '../../components/Menu/SubMenu';
 import ChangeTheme from './ChangeTheme';
 import TasklistWrapper from './Tasklist';
+import PhotoEditor from './PhotoEditor';
 
 const IndexWrapper = styled.div`
   display: flex;
@@ -19,7 +20,8 @@ const IndexWrapper = styled.div`
     width: 50%;
     margin-right: 50px;
   }
-  h3, p {
+  h3,
+  p {
     writing-mode: vertical-rl;
   }
   h3 {
@@ -45,8 +47,9 @@ const IndexWrapper = styled.div`
 const Workbox = () => {
   const match = useRouteMatch();
   const list = [
-    { id: 1, title: '🎨테마 변경하기', url: '/changeTheme' },
-    { id: 2, title: '✅업무리스트', url: '/tasklist' },
+    { id: 1, title: '🎨 테마 변경하기', url: '/changeTheme' },
+    { id: 2, title: '✅ 업무리스트', url: '/tasklist' },
+    { id: 3, title: '🖼 사진을 꾸며봐요', url: '/photoEditor' },
   ];
 
   return (
@@ -67,12 +70,22 @@ const Workbox = () => {
                   }
                   alt="Workbox Main"
                 />
-                <h3>재밌게 토이프로젝트 만드는 방법</h3>
-                <p>첫 번째 <span>참신</span>한 아이디어 떠올리기</p>
-                <p>두 번째 <span>뚱땅뚱땅</span> 만들기</p>
-                <p>세 번째 <span>삽질</span>하기</p>
-                <p>네 번째 <span>뚱땅뚱땅</span> 만들기</p>
-                <p>다섯 번째 <span>삽질</span>하기</p>
+                <h3>토이프로젝트 하는 방법</h3>
+                <p>
+                  첫 번째 <span>참신</span>한 아이디어 떠올리기
+                </p>
+                <p>
+                  두 번째 <span>뚱땅뚱땅</span> 만들기
+                </p>
+                <p>
+                  세 번째 <span>삽질</span>하기
+                </p>
+                <p>
+                  네 번째 <span>뚱땅뚱땅</span> 만들기
+                </p>
+                <p>
+                  다섯 번째 <span>삽질</span>하기
+                </p>
                 <p>...</p>
               </IndexWrapper>
             </Route>
@@ -81,6 +94,9 @@ const Workbox = () => {
             </Route>
             <Route path={`${match.path}/tasklist`}>
               <TasklistWrapper />
+            </Route>
+            <Route path={`${match.path}/photoEditor`}>
+              <PhotoEditor />
             </Route>
           </Switch>
         </Card>
