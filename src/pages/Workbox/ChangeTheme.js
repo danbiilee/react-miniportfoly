@@ -144,6 +144,8 @@ const ChangeTheme = () => {
   // Redux
   const dispatch = useDispatch();
   const { layout: palette } = useSelector(state => state.palette);
+  const defaultColors = useSelector(state => state.palette.hex.default);
+  const humidColors = useSelector(state => state.palette.hex.humid);
 
   // Set tab list
   const tabList = [];
@@ -154,33 +156,10 @@ const ChangeTheme = () => {
     left += 53;
   }
 
-  // Set default Palette's colors
-  const defaultColors = [
-    '#e03131',
-    '#d6336c',
-    '#fd7e14',
-    '#fab005',
-    '#37b24d',
-    '#15aabf',
-    '#228be6',
-    '#7048e8',
-  ];
-  const humidColors = [
-    '#ffc9c9',
-    '#fcc2d7',
-    '#ffd8a8',
-    '#ffec99',
-    '#b2f2bb',
-    '#99e9f2',
-    '#a5d8ff',
-    '#d0bfff',
-  ];
-
   // Selected layout & hex color
   const [target, setTarget] = useState('');
   const [hexColor, setHexColor] = useState('');
 
-  // Hex color code
   // Get random hex code
   const getRandomHexColor = () => {
     const letters = '0123456789ABCDEF';
