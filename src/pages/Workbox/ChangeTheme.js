@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled, { css } from 'styled-components';
 import { setColor } from '../../module/palette';
@@ -19,7 +19,7 @@ const TabList = styled.ul`
   left: 0;
 `;
 
-const Tab = styled.li`
+const TabBox = styled.li`
   position: absolute;
   top: 1px;
   left: ${props => props.left}px;
@@ -28,7 +28,7 @@ const Tab = styled.li`
   height: 50px;
   border: 1px solid #a5a5a5;
   ${props =>
-    props.id === props.target &&
+    props.isActive &&
     css`
       border-bottom-color: ${props => props.color};
     `}
@@ -59,7 +59,7 @@ const ColorWrapper = styled.div`
   padding: 20px;
 `;
 
-const Swatch = styled.div`
+const SwatchBox = styled.div`
   width: 150px;
   height: 200px;
   background: #fff;
@@ -140,14 +140,20 @@ const Button = styled.button`
   }
 `;
 
-const ChangeTheme = () => {
-  // Redux
-  const dispatch = useDispatch();
-  const { layout: palette } = useSelector(state => state.palette);
-  const defaultColors = useSelector(state => state.palette.hex.default);
-  const humidColors = useSelector(state => state.palette.hex.humid);
+// 랜덤 헥스 컬러 
+const getRandomHexColor = () => {
+  const letters = '0123456789ABCDEF';
+  let hex = '#';
+  for (let i = 0; i < 6; i++) {
+    hex += letters[Math.floor(Math.random() * 16)];
+  }
+  return hex;
+};
 
-  // Set tab list
+const ChangeTheme = () => {
+  const { layout: palette } = useSelector(state => state.palette);
+
+  // 탭 리스트 
   const tabList = [];
   let index = 1;
   let left = 0; // + tab's width, margin-left
@@ -156,38 +162,15 @@ const ChangeTheme = () => {
     left += 53;
   }
 
-  // Selected layout & hex color
+  // 타겟 & 헥스 컬러 
   const [target, setTarget] = useState('');
   const [hexColor, setHexColor] = useState('');
 
-  // Get random hex code
-  const getRandomHexColor = () => {
-    const letters = '0123456789ABCDEF';
-    let hex = '#';
-    for (let i = 0; i < 6; i++) {
-      hex += letters[Math.floor(Math.random() * 16)];
-    }
-    return hex;
-  };
-
-  // Set hex code to Swatch
-  const onChange = e => setHexColor(e.target.value);
-
-  // Handle color
-  const handleLayoutColor = target => {
-    setTarget(target);
-    setHexColor(getRandomHexColor());
-  };
-
-  // Change layout color 
-  const changeLayoutColor = () => {
-    dispatch(
-      setColor({
-        key: target,
-        value: hexColor,
-      }),
-    );
-  };
+  // 선택된 타겟 관리 
+  const handleTarget = useCallback(target => {
+    setTarget(target); // Set selected target
+    setHexColor(getRandomHexColor()); // 
+  }, []);
 
   return (
     <Post>
@@ -197,65 +180,117 @@ const ChangeTheme = () => {
           {tabList.map(tab => (
             <Tab
               key={tab.id}
-              id={tab.target}
+              tab={tab}
               target={target}
-              color={tab.color}
-              left={tab.left}
-              onClick={() => handleLayoutColor(tab.target)}
-            ></Tab>
+              handleTarget={handleTarget}
+            />
           ))}
         </TabList>
-        <ChangeWrapper color={palette[target]}>
-          {target ? (
-            <ColorWrapper>
-              <Swatch color={hexColor}>
-                <input
-                  type="color"
-                  name={target}
-                  value={hexColor}
-                  onChange={onChange}
-                  title="DON'T PASS ME! PICK ANOTHER COLOR!"
-                />
-                <p>{hexColor}</p>
-                <p>{target}</p>
-              </Swatch>
-              <PaletteWrapper>
-                <ColorList>
-                  {defaultColors.map((color, index) => (
-                    <Color
-                      key={index}
-                      color={color}
-                      onClick={() => setHexColor(color)}
-                    ></Color>
-                  ))}
-                </ColorList>
-                <ColorList>
-                  {humidColors.map((color, index) => (
-                    <Color
-                      key={index}
-                      color={color}
-                      onClick={() => setHexColor(color)}
-                    ></Color>
-                  ))}
-                </ColorList>
-                <Button
-                  type="button"
-                  onClick={() => setHexColor(getRandomHexColor())}
-                >
-                  랜덤!
-                </Button>
-                <Button type="button" onClick={changeLayoutColor}>
-                  적용하기
-                </Button>
-              </PaletteWrapper>
-            </ColorWrapper>
-          ) : (
-            <div className="pleasePick">변경할 색상의 탭을 선택하세요!</div>
-          )}
-        </ChangeWrapper>
+        <Content target={target}
+                 hexColor={hexColor} 
+                 setHexColor={setHexColor} />
       </ThemeWrapper>
     </Post>
   );
 };
+
+// const Tab = ({ tab, target, handleTarget }) => {
+//   const { id, target: key, color, left } = tab;
+//   console.log(target, handleTarget);
+
+//   return <TabBox 
+//             id={id} 
+//             isActive={key === target} 
+//             color={color} 
+//             left={left} 
+//             onClick={() => handleTarget(tab.target)}
+//           />;
+// };
+
+const Tab = React.memo(({ tab, target, handleTarget }) => {
+  const { id, target: key, color, left } = tab;
+  console.log(target, handleTarget);
+
+  return <TabBox 
+            id={id} 
+            isActive={key === target} 
+            color={color} 
+            left={left} 
+            onClick={() => handleTarget(tab.target)}
+          />;
+});
+
+const Content = ({ target, hexColor, setHexColor }) => {
+  const dispatch = useDispatch();
+  const { layout: palette } = useSelector(state => state.palette);
+  const defaultColors = useSelector(state => state.palette.hex.default);
+  const humidColors = useSelector(state => state.palette.hex.humid);
+
+  // 스와치(input[type=color]) 컬러 변경 
+  const onChange = e => setHexColor(e.target.value);
+
+  // 리덕스 palette.layout 값 변경 
+  const changeLayoutColor = () => {
+    dispatch(
+      setColor({
+        key: target,
+        value: hexColor,
+      }),
+    );
+  };
+
+  return (<ChangeWrapper color={palette[target]}>
+    {target ? (
+      <ColorWrapper>
+        <Swatch target={target} hexColor={hexColor} onChange={onChange} />
+        <PaletteWrapper>
+          <ColorList>
+            {defaultColors.map((color, index) => (
+              <Color
+                key={index}
+                color={color}
+                onClick={() => setHexColor(color)}
+              ></Color>
+            ))}
+          </ColorList>
+          <ColorList>
+            {humidColors.map((color, index) => (
+              <Color
+                key={index}
+                color={color}
+                onClick={() => setHexColor(color)}
+              ></Color>
+            ))}
+          </ColorList>
+          <Button
+            type="button"
+            onClick={() => setHexColor(getRandomHexColor())}
+          >
+            랜덤!
+          </Button>
+          <Button type="button" onClick={changeLayoutColor}>
+            적용하기
+          </Button>
+        </PaletteWrapper>
+      </ColorWrapper>
+    ) : (
+      <div className="pleasePick">변경할 색상의 탭을 선택하세요!</div>
+    )}
+  </ChangeWrapper>);
+}
+
+const Swatch = ({target, hexColor, onChange}) => {
+  return (<SwatchBox color={hexColor}>
+    <input
+      type="color"
+      name={target}
+      value={hexColor}
+      onChange={onChange}
+      title="DON'T PASS ME! PICK ANOTHER COLOR!"
+    />
+    <p>{hexColor}</p>
+    <p>{target}</p>
+  </SwatchBox>);
+}
 
 export default ChangeTheme;
