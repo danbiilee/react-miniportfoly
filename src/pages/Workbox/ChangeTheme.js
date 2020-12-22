@@ -163,13 +163,13 @@ const ChangeTheme = () => {
   }
 
   // 타겟 & 헥스 컬러 
-  const [target, setTarget] = useState('');
-  const [hexColor, setHexColor] = useState('');
+  const [target, setTarget] = useState(tabList[0].target);
+  const [hexColor, setHexColor] = useState(getRandomHexColor());
 
   // 선택된 타겟 관리 
   const handleTarget = useCallback(target => {
-    setTarget(target); // Set selected target
-    setHexColor(getRandomHexColor()); // 
+    setTarget(target); 
+    setHexColor(getRandomHexColor());  
   }, []);
 
   return (
@@ -194,23 +194,8 @@ const ChangeTheme = () => {
   );
 };
 
-// const Tab = ({ tab, target, handleTarget }) => {
-//   const { id, target: key, color, left } = tab;
-//   console.log(target, handleTarget);
-
-//   return <TabBox 
-//             id={id} 
-//             isActive={key === target} 
-//             color={color} 
-//             left={left} 
-//             onClick={() => handleTarget(tab.target)}
-//           />;
-// };
-
 const Tab = React.memo(({ tab, target, handleTarget }) => {
   const { id, target: key, color, left } = tab;
-  console.log(target, handleTarget);
-
   return <TabBox 
             id={id} 
             isActive={key === target} 
@@ -220,14 +205,14 @@ const Tab = React.memo(({ tab, target, handleTarget }) => {
           />;
 });
 
-const Content = ({ target, hexColor, setHexColor }) => {
+const Content = React.memo(({ target, hexColor, setHexColor }) => {
   const dispatch = useDispatch();
   const { layout: palette } = useSelector(state => state.palette);
   const defaultColors = useSelector(state => state.palette.hex.default);
   const humidColors = useSelector(state => state.palette.hex.humid);
 
   // 스와치(input[type=color]) 컬러 변경 
-  const onChange = e => setHexColor(e.target.value);
+  const onChange = useCallback(e => setHexColor(e.target.value), []);
 
   // 리덕스 palette.layout 값 변경 
   const changeLayoutColor = () => {
@@ -277,9 +262,9 @@ const Content = ({ target, hexColor, setHexColor }) => {
       <div className="pleasePick">변경할 색상의 탭을 선택하세요!</div>
     )}
   </ChangeWrapper>);
-}
+});
 
-const Swatch = ({target, hexColor, onChange}) => {
+const Swatch = React.memo(({target, hexColor, onChange}) => {
   return (<SwatchBox color={hexColor}>
     <input
       type="color"
@@ -291,6 +276,6 @@ const Swatch = ({target, hexColor, onChange}) => {
     <p>{hexColor}</p>
     <p>{target}</p>
   </SwatchBox>);
-}
+});
 
 export default ChangeTheme;
