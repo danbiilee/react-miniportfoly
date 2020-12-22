@@ -19,28 +19,6 @@ const initialState = {
     important: '#3b5bdb',
     notice: '#fcc419',
   },
-  hex: {
-    default: [
-      '#e03131',
-      '#d6336c',
-      '#fd7e14',
-      '#fab005',
-      '#37b24d',
-      '#15aabf',
-      '#228be6',
-      '#7048e8',
-    ],
-    humid: [
-      '#ffc9c9',
-      '#fcc2d7',
-      '#ffd8a8',
-      '#ffec99',
-      '#b2f2bb',
-      '#99e9f2',
-      '#a5d8ff',
-      '#d0bfff',
-    ]
-  }
 };
 
 export default function palette(state = initialState, action) {
