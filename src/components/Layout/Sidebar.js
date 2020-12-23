@@ -15,14 +15,17 @@ const SidebarBlock = styled.div`
       border-right: 1px solid;
     }
   }
+  .today {
+    color: ${props => props.theme.component.priority};
+  }
 `;
 
 const Sidebar = ({ children }) => {
   return (
     <SidebarBlock>
       <ul>
-        <li>TODAY 0</li>
-        <li>TOTAL 0</li>
+        <li>TODAY <span className="today">1</span></li>
+        <li>TOTAL 999999</li>
       </ul>
       {children}
     </SidebarBlock>
