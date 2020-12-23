@@ -5,7 +5,6 @@ import Content from '../../components/Layout/Content';
 import Layout from '../../components/Layout/Layout';
 import Sidebar from '../../components/Layout/Sidebar';
 import Card from '../../components/Layout/Card';
-import MainMenu from '../../components/Menu/MainMenu';
 import SubMenu from '../../components/Menu/SubMenu';
 import ChangeTheme from './ChangeTheme';
 import TasklistWrapper from './Tasklist';
@@ -101,7 +100,6 @@ const Workbox = () => {
           </Switch>
         </Card>
       </Content>
-      <MainMenu />
     </Layout>
   );
 };

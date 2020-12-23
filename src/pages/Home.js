@@ -4,7 +4,6 @@ import Layout from '../components/Layout/Layout';
 import Sidebar from '../components/Layout/Sidebar';
 import Content from '../components/Layout/Content';
 import Card from '../components/Layout/Card';
-import MainMenu from '../components/Menu/MainMenu';
 import { MdLink, MdMailOutline, MdLocationOn, MdPhoneIphone } from 'react-icons/md';
 
 const FlexWrapper = styled.div`
@@ -168,7 +167,6 @@ const Home = () => {
           </ContentSection>
         </Card>
       </Content>
-      <MainMenu />
     </Layout>
   );
 };

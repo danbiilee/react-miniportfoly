@@ -142,7 +142,7 @@ const Button = styled.button`
 
 const ChangeTheme = () => {
   const { layout: palette } = useSelector(state => state.palette);
-  console.log('root rendeer');
+  //console.log('root rendeer');
 
   // 탭 리스트 
   const tabList = [];
@@ -178,7 +178,7 @@ const ChangeTheme = () => {
 
 const Tab = ({ tab, target, setTarget }) => {
   const { id, target: key, color, left } = tab;
-  console.log('tab render');
+  //console.log('tab render');
 
   return <TabBox 
             id={id} 
@@ -192,7 +192,7 @@ const Tab = ({ tab, target, setTarget }) => {
 const Content = React.memo(({ target }) => {
   const dispatch = useDispatch();
   const { layout: palette } = useSelector(state => state.palette);
-  console.log('content render');
+  //console.log('content render');
 
   // 헥스 컬러 
   const getRandomHexColor = useCallback(() => {
@@ -210,11 +210,11 @@ const Content = React.memo(({ target }) => {
   }, []);
   
   // 탭 선택할 때마다 랜덤컬러 변경하려면?! 
-  console.log(getRandomHexColor());
-  useEffect(() => {
-    console.log('content mount!!!!');
-    //setHexColor(getRandomHexColor());
-  });
+  // console.log(getRandomHexColor());
+  // useEffect(() => {
+  //   console.log('content mount!!!!');
+  //   //setHexColor(getRandomHexColor());
+  // });
 
   // 스와치(input[type=color]) 컬러 변경 
   const onChange = useCallback(e => setHexColor(e.target.value), []);
@@ -255,7 +255,7 @@ const Content = React.memo(({ target }) => {
 const Palette = React.memo(({ setHexColor }) => {
   const defaultColors = ['#e03131', '#d6336c', '#fd7e14', '#fab005', '#37b24d', '#15aabf', '#228be6', '#7048e8'];
   const humidColors = ['#ffc9c9', '#fcc2d7', '#ffd8a8', '#ffec99', '#b2f2bb', '#99e9f2', '#a5d8ff', '#d0bfff'];
-  console.log('palette render');
+  //console.log('palette render');
 
   return (
     <>
@@ -282,7 +282,7 @@ const Palette = React.memo(({ setHexColor }) => {
 });
 
 const Swatch = React.memo(({target, hexColor, onChange}) => {
-  console.log('swatch render');
+  //console.log('swatch render');
 
   return (<SwatchBox color={hexColor}>
     <input

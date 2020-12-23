@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Layout from '../../components/Layout/Layout';
 import Card from '../../components/Layout/Card';
-import MainMenu from '../../components/Menu/MainMenu';
 import SubMenu from '../../components/Menu/SubMenu';
 import Sidebar from '../../components/Layout/Sidebar';
 import Content from '../../components/Layout/Content';
@@ -194,7 +193,6 @@ const Diary = () => {
           </PostWrapper>
         </Card>
       </Content>
-      <MainMenu />
     </Layout>
   );
 };

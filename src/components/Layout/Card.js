@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const CardBlock = styled.div`
+  z-index: 10;
   overflow-y: auto;
   width: 100%;
   height: 96%;
