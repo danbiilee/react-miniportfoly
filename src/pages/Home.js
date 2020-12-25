@@ -4,7 +4,12 @@ import Layout from '../components/Layout/Layout';
 import Sidebar from '../components/Layout/Sidebar';
 import Content from '../components/Layout/Content';
 import Card from '../components/Layout/Card';
-import { MdLink, MdMailOutline, MdLocationOn, MdPhoneIphone } from 'react-icons/md';
+import {
+  MdLink,
+  MdMailOutline,
+  MdLocationOn,
+  MdPhoneIphone,
+} from 'react-icons/md';
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -49,15 +54,12 @@ const ContentSection = styled.section`
 const ProfileSection = styled.section`
   height: fit-content !important;
   &:last-of-type {
-    padding-top: 20px;
+    padding: 10px 0;
     border-top: 1px dashed gray;
-    //font-size: 0.9rem;
     p {
       display: flex;
       align-items: center;
-      &:not(:first-of-type) {
-        margin: 10px 0;
-      }
+      margin: 10px 0;
     }
     svg {
       margin-right: 3px;
@@ -93,6 +95,9 @@ const LinkTitle = styled.p`
   &:first-of-type {
     margin-top: 20px;
   }
+  &:last-of-type {
+    margin-bottom: 20px;
+  }
   cursor: pointer;
   svg {
     margin-right: 5px;
@@ -122,8 +127,14 @@ const Home = () => {
                 src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
                 alt="profile"
               />
-              <LinkTitle onClick={goGithub}><MdLink />Github</LinkTitle>
-              <LinkTitle onClick={goVelog}><MdLink />dblee.log</LinkTitle>
+              <LinkTitle onClick={goGithub}>
+                <MdLink />
+                Github
+              </LinkTitle>
+              <LinkTitle onClick={goVelog}>
+                <MdLink />
+                dblee.log
+              </LinkTitle>
             </ProfileSection>
             <ProfileSection>
               <p>

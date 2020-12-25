@@ -2,7 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SidebarBlock = styled.div`
+  display: flex;
+  flex-direction: column;
   width: 25%;
+  height: 100%;
   margin-right: 8px;
   & > ul {
     display: flex;
@@ -24,7 +27,9 @@ const Sidebar = ({ children }) => {
   return (
     <SidebarBlock>
       <ul>
-        <li>TODAY <span className="today">1</span></li>
+        <li>
+          TODAY <span className="today">1</span>
+        </li>
         <li>TOTAL 999999</li>
       </ul>
       {children}

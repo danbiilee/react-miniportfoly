@@ -18,7 +18,7 @@ const BgWrapper = styled.div`
   position: relative;
   display: flex;
   height: 100%;
-  padding: 20px 8px;
+  padding: 20px 8px 8px;
   background: ${props => props.theme.layout.layoutBg2};
   border: 2px dashed ${props => props.theme.layout.layoutBorder2};
   border-radius: 10px;
