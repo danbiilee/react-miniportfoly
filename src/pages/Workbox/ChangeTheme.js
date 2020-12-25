@@ -6,6 +6,7 @@ import Post from '../../components/Layout/Post';
 
 const ThemeWrapper = styled.div`
   position: relative;
+  overflow-x: auto;
   width: 95%;
   height: 100%;
   margin: 40px auto;
@@ -46,10 +47,10 @@ const ChangeWrapper = styled.div`
   border: 1px solid #a5a5a5;
   border-radius: 0 5px 5px 5px;
   background: ${props => props.color};
-  box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   .pleasePick {
     padding: 20px;
-    box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
     font-weight: bold;
   }
 `;
@@ -144,7 +145,7 @@ const ChangeTheme = () => {
   const { layout: palette } = useSelector(state => state.palette);
   //console.log('root rendeer');
 
-  // 탭 리스트 
+  // 탭 리스트
   const tabList = [];
   let index = 1;
   let left = 0; // + tab's width, margin-left
@@ -162,12 +163,7 @@ const ChangeTheme = () => {
       <ThemeWrapper>
         <TabList>
           {tabList.map(tab => (
-            <Tab
-              key={tab.id}
-              tab={tab}
-              target={target}
-              setTarget={setTarget} 
-            />
+            <Tab key={tab.id} tab={tab} target={target} setTarget={setTarget} />
           ))}
         </TabList>
         <Content target={target} />
@@ -180,21 +176,23 @@ const Tab = ({ tab, target, setTarget }) => {
   const { id, target: key, color, left } = tab;
   //console.log('tab render');
 
-  return <TabBox 
-            id={id} 
-            isActive={key === target} 
-            color={color} 
-            left={left} 
-            onClick={() => setTarget(tab.target)}
-          />;
-}
+  return (
+    <TabBox
+      id={id}
+      isActive={key === target}
+      color={color}
+      left={left}
+      onClick={() => setTarget(tab.target)}
+    />
+  );
+};
 
 const Content = React.memo(({ target }) => {
   const dispatch = useDispatch();
   const { layout: palette } = useSelector(state => state.palette);
   //console.log('content render');
 
-  // 헥스 컬러 
+  // 헥스 컬러
   const getRandomHexColor = useCallback(() => {
     const letters = '0123456789ABCDEF';
     let hex = '#';
@@ -203,23 +201,23 @@ const Content = React.memo(({ target }) => {
     }
     return hex;
   });
-  
+
   const [hexColor, setHexColor] = useState(getRandomHexColor());
   const handleHexColor = useCallback(() => {
     setHexColor(getRandomHexColor());
   }, []);
-  
-  // 탭 선택할 때마다 랜덤컬러 변경하려면?! 
+
+  // 탭 선택할 때마다 랜덤컬러 변경하려면?!
   // console.log(getRandomHexColor());
   // useEffect(() => {
   //   console.log('content mount!!!!');
   //   //setHexColor(getRandomHexColor());
   // });
 
-  // 스와치(input[type=color]) 컬러 변경 
+  // 스와치(input[type=color]) 컬러 변경
   const onChange = useCallback(e => setHexColor(e.target.value), []);
 
-  // 리덕스 palette.layout 값 변경 
+  // 리덕스 palette.layout 값 변경
   const changeLayoutColor = () => {
     dispatch(
       setColor({
@@ -229,32 +227,49 @@ const Content = React.memo(({ target }) => {
     );
   };
 
-  return (<ChangeWrapper color={palette[target]}>
-    {target ? (
-      <ColorWrapper>
-        <Swatch target={target} hexColor={hexColor} onChange={onChange} />
-        <PaletteWrapper>
-          <Palette setHexColor={setHexColor} />
-          <Button
-            type="button"
-            onClick={handleHexColor}
-          >
-            랜덤!
-          </Button>
-          <Button type="button" onClick={changeLayoutColor}>
-            적용하기
-          </Button>
-        </PaletteWrapper>
-      </ColorWrapper>
-    ) : (
-      <div className="pleasePick">변경할 색상의 탭을 선택하세요!</div>
-    )}
-  </ChangeWrapper>);
+  return (
+    <ChangeWrapper color={palette[target]}>
+      {target ? (
+        <ColorWrapper>
+          <Swatch target={target} hexColor={hexColor} onChange={onChange} />
+          <PaletteWrapper>
+            <Palette setHexColor={setHexColor} />
+            <Button type="button" onClick={handleHexColor}>
+              랜덤!
+            </Button>
+            <Button type="button" onClick={changeLayoutColor}>
+              적용하기
+            </Button>
+          </PaletteWrapper>
+        </ColorWrapper>
+      ) : (
+        <div className="pleasePick">변경할 색상의 탭을 선택하세요!</div>
+      )}
+    </ChangeWrapper>
+  );
 });
 
 const Palette = React.memo(({ setHexColor }) => {
-  const defaultColors = ['#e03131', '#d6336c', '#fd7e14', '#fab005', '#37b24d', '#15aabf', '#228be6', '#7048e8'];
-  const humidColors = ['#ffc9c9', '#fcc2d7', '#ffd8a8', '#ffec99', '#b2f2bb', '#99e9f2', '#a5d8ff', '#d0bfff'];
+  const defaultColors = [
+    '#e03131',
+    '#d6336c',
+    '#fd7e14',
+    '#fab005',
+    '#37b24d',
+    '#15aabf',
+    '#228be6',
+    '#7048e8',
+  ];
+  const humidColors = [
+    '#ffc9c9',
+    '#fcc2d7',
+    '#ffd8a8',
+    '#ffec99',
+    '#b2f2bb',
+    '#99e9f2',
+    '#a5d8ff',
+    '#d0bfff',
+  ];
   //console.log('palette render');
 
   return (
@@ -281,20 +296,22 @@ const Palette = React.memo(({ setHexColor }) => {
   );
 });
 
-const Swatch = React.memo(({target, hexColor, onChange}) => {
+const Swatch = React.memo(({ target, hexColor, onChange }) => {
   //console.log('swatch render');
 
-  return (<SwatchBox color={hexColor}>
-    <input
-      type="color"
-      name={target}
-      value={hexColor}
-      onChange={onChange}
-      title="DON'T PASS ME! PICK ANOTHER COLOR!"
-    />
-    <p>{hexColor}</p>
-    <p>{target}</p>
-  </SwatchBox>);
+  return (
+    <SwatchBox color={hexColor}>
+      <input
+        type="color"
+        name={target}
+        value={hexColor}
+        onChange={onChange}
+        title="DON'T PASS ME! PICK ANOTHER COLOR!"
+      />
+      <p>{hexColor}</p>
+      <p>{target}</p>
+    </SwatchBox>
+  );
 });
 
 export default ChangeTheme;

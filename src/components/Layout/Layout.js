@@ -6,7 +6,7 @@ const Wrapper = styled.div`
 `;
 
 const BorderWrapper = styled.div`
-  width: 80%;
+  width: 75%;
   height: 95vh;
   padding: 25px;
   background: ${props => props.theme.layout.layoutBg1};
@@ -15,6 +15,7 @@ const BorderWrapper = styled.div`
 `;
 
 const BgWrapper = styled.div`
+  z-index: 1;
   position: relative;
   display: flex;
   height: 100%;

@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
 const Nav = styled.nav`
-  margin: 40px 0 0 -10px;
+  z-index: -1;
+  position: absolute;
+  top: 70px;
+  right: -70px;
   ul {
     a {
       display: inline-block;

@@ -28,18 +28,16 @@ const ContentSection = styled.section`
   &:first-of-type {
     div {
       width: 100%;
-      height: 250px;
+      height: 200px;
       background: lightblue;
       border: 1px solid gray;
     }
   }
   &:last-of-type {
-    h2 {
-      border-bottom: 1px dashed gray;
-      line-height: 1.4;
-    }
+    margin-top: 20px;
     div {
-      margin-bottom: 10px;
+      overflow-y: auto;
+      height: 142px;
     }
   }
   ul {

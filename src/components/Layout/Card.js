@@ -6,7 +6,7 @@ const CardBlock = styled.div`
   overflow-y: auto;
   width: 100%;
   height: 96%;
-  margin: 10px 0 5px;
+  margin-top: 10px;
   padding: 20px;
   border: 1px solid ${props => props.theme.layout.cardBorder};
   border-radius: 10px;
