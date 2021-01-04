@@ -51,11 +51,6 @@ function MainMenu() {
             사진첩
           </NavLink>
         </li>
-        <li>
-          <NavLink to="/gbook" activeClassName="selected">
-            방명록
-          </NavLink>
-        </li>
       </ul>
     </Nav>
   );

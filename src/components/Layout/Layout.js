@@ -1,7 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import Setting from '../Setting';
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
   padding: 0 20px;
 `;
 
@@ -31,6 +34,7 @@ const Layout = ({ children }) => {
       <BorderWrapper>
         <BgWrapper>{children}</BgWrapper>
       </BorderWrapper>
+      <Setting />
     </Wrapper>
   );
 };

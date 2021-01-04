@@ -16,7 +16,7 @@ const ContentWrapper = styled.div`
 const Content = ({ children }) => {
   return (
     <ContentWrapper>
-      <h1>귀엽고 깜찍한 미니포트폴리</h1>
+      <h1>danbi::miniportfoly</h1>
       {children}
       <MainMenu />
     </ContentWrapper>

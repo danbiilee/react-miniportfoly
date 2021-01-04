@@ -166,8 +166,8 @@ const Home = () => {
             <h2>한 줄 이력</h2>
             <div>
               <ul>
-                <li>KH 수료</li>
-                <li>소프트원 재직중</li>
+                <li>소프트원</li>
+                <li>KH정보교육원 수료</li>
                 <li></li>
                 <li></li>
                 <li></li>

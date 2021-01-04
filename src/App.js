@@ -30,9 +30,6 @@ const App = () => {
         <Route path="/photo">
           <Photo />
         </Route>
-        <Route path="/gbook">
-          <Gbook />
-        </Route>
       </Switch>
     </ThemeProvider>
   );
@@ -42,14 +39,6 @@ function Photo() {
   return (
     <div>
       Photo
-      <Menu />
-    </div>
-  );
-}
-function Gbook() {
-  return (
-    <div>
-      Gbook
       <Menu />
     </div>
   );
