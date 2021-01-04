@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdKeyboardArrowUp, MdKeyboardArrowDown } from 'react-icons/md';
 import PaletteTab from './PaletteTab';
@@ -33,8 +33,6 @@ const ToggleContent = styled.div`
 `;
 
 const ChangeSkin = () => {
-  console.log('ChangeSkin');
-
   const [isOpen, setIsOpen] = useState(false);
   const [target, setTarget] = useState('layoutBg1');
   const [hexColor, setHexColor] = useState('#ffc9c9');

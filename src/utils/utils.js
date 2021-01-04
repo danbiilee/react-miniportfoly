@@ -24,6 +24,5 @@ export const getRandomHexColor = () => {
   for (let i = 0; i < 6; i++) {
     hex += letters[Math.floor(Math.random() * 16)];
   }
-  console.log('getRandomHexColor', hex);
   return hex;
 };
