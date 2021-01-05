@@ -37,18 +37,8 @@ function MainMenu() {
           </NavLink>
         </li>
         <li>
-          <NavLink to="/diary" activeClassName="selected">
-            다이어리
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/workbox" activeClassName="selected">
-            워크박스
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to="/photo" activeClassName="selected">
-            사진첩
+          <NavLink to="/profile" activeClassName="selected">
+            프로필
           </NavLink>
         </li>
       </ul>
