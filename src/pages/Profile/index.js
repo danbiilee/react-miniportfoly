@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import Layout from '../../components/Layout/Layout';
 import Card from '../../components/Layout/Card';
@@ -8,7 +7,6 @@ import SubMenu from '../../components/Menu/SubMenu';
 import Sidebar from '../../components/Layout/Sidebar';
 import Content from '../../components/Layout/Content';
 import Post from '../../components/Layout/Post';
-import Modal from '../../components/Modal/Modal';
 
 const PostWrapper = styled.div`
   overflow-y: auto;
@@ -16,26 +14,30 @@ const PostWrapper = styled.div`
   padding: 0 20px;
 `;
 
-const Button = styled.button`
-  float: right;
-  margin: 0 10px 10px 0;
-`;
-
-// Modal
-const ButtonWrapper = styled.div``;
-
-const Diary = () => {
+const Profile = () => {
   const match = useRouteMatch();
   const list = [
-    { id: 1, title: '📁작업일지', url: '/workLog' },
+    {
+      id: 1,
+      title: '👩‍💻내 소개',
+      url: '/intro',
+      child: [
+        { id: 1, title: '소개', url: '/aboutMe' },
+        { id: 2, title: '키워드', url: '/keyword' },
+        { id: 3, title: '히스토리', url: '/history' },
+        { id: 4, title: '기본정보', url: '/info' },
+      ],
+    },
     {
       id: 2,
-      title: '📁공부노트',
-      url: '/study',
-      child: [
-        { id: 1, title: '📝리액트', url: '/react' },
-        { id: 2, title: '📝자바스크립트', url: '/js' },
-      ],
+      title: '👭내 인맥',
+      url: '/people',
+    },
+    {
+      id: 3,
+      title: '⭐내 즐겨찾기',
+      url: '/favorite',
+      child: [{ id: 1, title: '링크', url: '/link' }],
     },
   ];
 
@@ -43,7 +45,7 @@ const Diary = () => {
     <Layout>
       <Sidebar>
         <Card>
-          <SubMenu title="다이어리" list={list} />
+          <SubMenu title="Profile" list={list} />
         </Card>
       </Sidebar>
       <Content>
@@ -53,7 +55,7 @@ const Diary = () => {
               <Route exact path={match.path}>
                 <>
                   <Post>
-                    <h3>다이어리 메인</h3>
+                    <h3>프로필 메인</h3>
                     <div className="post-info">
                       <p>이단비</p>
                       <p>2020-11-12</p>
@@ -86,12 +88,19 @@ const Diary = () => {
                   </Post>
                 </>
               </Route>
-              <Route path={`${match.path}/workLog`}>작업일지</Route>
-              <Route exact path={`${match.path}/study`}>
-                스터디 메인
+              <Route path={`${match.path}/intro`}>내 소개</Route>
+              <Route exact path={`${match.path}/intro/aboutMe`}>
+                소개
               </Route>
-              <Route path={`${match.path}/study/react`}>스터디 리액트</Route>
-              <Route path={`${match.path}/study/js`}>스터디 자바스크립트</Route>
+              <Route exact path={`${match.path}/intro/keyword`}>
+                키워드
+              </Route>
+              <Route exact path={`${match.path}/intro/history`}>
+                히스토리
+              </Route>
+              <Route exact path={`${match.path}/intro/info`}>
+                기본정보
+              </Route>
             </Switch>
           </PostWrapper>
         </Card>
@@ -100,4 +109,4 @@ const Diary = () => {
   );
 };
 
-export default Diary;
+export default Profile;

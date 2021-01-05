@@ -10,6 +10,7 @@ import {
   MdLocationOn,
   MdPhoneIphone,
 } from 'react-icons/md';
+import { publicUrl } from '../utils/utils';
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -28,9 +29,10 @@ const ContentSection = styled.section`
   &:first-of-type {
     div {
       width: 100%;
-      height: 200px;
-      background: lightblue;
-      border: 1px solid gray;
+      min-height: 200px;
+      img {
+        width: 100%;
+      }
     }
   }
   &:last-of-type {
@@ -122,7 +124,7 @@ const Home = () => {
           <FlexWrapper>
             <ProfileSection>
               <img
-                src={process.env.PUBLIC_URL + '/resources/img/profile.jpg'}
+                src={publicUrl + '/resources/img/profile.jpg'}
                 alt="profile"
               />
               <LinkTitle onClick={goGithub}>
@@ -160,7 +162,12 @@ const Home = () => {
         <Card>
           <ContentSection>
             <h2>미니룸</h2>
-            <div>준비중</div>
+            <div>
+              <img
+                src={publicUrl + '/resources/img/miniroom.gif'}
+                alt="miniroom"
+              />
+            </div>
           </ContentSection>
           <ContentSection>
             <h2>한 줄 이력</h2>
