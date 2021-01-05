@@ -51,7 +51,7 @@ const TitleWrapper = styled.header`
   justify-content: space-between;
   padding: 20px;
   background: #fff;
-  border-bottom: 2px solid ${props => props.theme.layout.mainColor};
+  border-bottom: 2px solid ${props => props.theme.mainColor.color};
   border-radius: 8px 8px 0 0;
   h4 {
     width: 70%;
@@ -63,7 +63,7 @@ const TitleWrapper = styled.header`
 const TitleInput = styled.input`
   width: 75%;
   padding: 3px 7px;
-  border: 2px solid ${props => props.theme.layout.mainColor};
+  border: 2px solid ${props => props.theme.mainColor.color};
   border-radius: 3px;
   outline: 0;
 `;

@@ -23,7 +23,7 @@ const ContentSection = styled.section`
   h2 {
     margin-bottom: 10px;
     font-weight: bold;
-    color: ${props => props.theme.layout.mainColor};
+    color: ${props => props.theme.mainColor.color};
   }
   &:first-of-type {
     div {
@@ -71,7 +71,7 @@ const ProfileSection = styled.section`
   }
   .my-name {
     margin-right: 5px;
-    color: ${props => props.theme.layout.mainColor};
+    color: ${props => props.theme.mainColor.color};
     font-size: 1rem;
     font-weight: bold;
   }
@@ -103,7 +103,7 @@ const LinkTitle = styled.p`
     font-size: 1.2rem;
   }
   &:hover {
-    color: ${props => props.theme.layout.mainColor};
+    color: ${props => props.theme.mainColor.color};
   }
 `;
 

@@ -7,7 +7,7 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   width: 75%;
   h1 {
-    color: ${props => props.theme.layout.headerColor};
+    color: ${props => props.theme.headerColor.color};
     font-weight: bold;
     font-size: 1.1rem;
   }

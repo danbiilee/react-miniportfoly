@@ -14,10 +14,10 @@ const Wrapper = styled.div`
 `;
 
 const ViewWrapper = styled(Wrapper)`
-  background: ${props => props.theme.layout.layoutBg2};
+  background: ${props => props.theme.layoutBg2.color};
   color: #454545;
   &:hover {
-    background: ${props => props.theme.layout.mainColor};
+    background: ${props => props.theme.mainColor.color};
     color: #fff;
   }
   font-weight: bold;
@@ -30,14 +30,14 @@ const ViewWrapper = styled(Wrapper)`
 `;
 
 const FormWrapper = styled(Wrapper)`
-  background: ${props => props.theme.layout.layoutBg1};
+  background: ${props => props.theme.layoutBg1.color};
   color: #454545;
 `;
 
 const Input = styled.input`
   width: 75%;
   padding: 3px 7px;
-  border: 2px solid ${props => props.theme.layout.mainColor};
+  border: 2px solid ${props => props.theme.mainColor.color};
   border-radius: 3px;
   outline: 0;
 `;

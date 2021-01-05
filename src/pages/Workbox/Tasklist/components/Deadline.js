@@ -5,16 +5,16 @@ import { today, strToDate } from '../../../../utils/utils';
 const DeadlineWrapper = styled.div`
   margin: 10px 0 15px;
   padding-left: 3px;
-  color: ${props => props.theme.layout.mainColor};
+  color: ${props => props.theme.mainColor.color};
   ${props =>
     props.isOver &&
     css`
-      color: ${props => props.theme.component.priority};
+      color: black;
     `};
   ${props =>
     props.isFin &&
     css`
-      color: ${props => props.theme.layout.outer};
+      color: ${props => props.theme.outer.color};
     `};
   font-size: 0.7rem;
   font-weight: bold;

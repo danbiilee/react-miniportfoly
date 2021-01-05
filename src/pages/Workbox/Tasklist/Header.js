@@ -18,7 +18,7 @@ const TitleWrapper = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 10px;
-  background: ${props => props.theme.layout.layoutBg1};
+  background: ${props => props.theme.layoutBg1.color};
   h4 {
     width: 70%;
     font-size: 0.9rem;
@@ -29,7 +29,7 @@ const TitleWrapper = styled.header`
 const Input = styled.input`
   width: 75%;
   padding: 3px 7px;
-  border: 2px solid ${props => props.theme.layout.mainColor};
+  border: 2px solid ${props => props.theme.mainColor.color};
   border-radius: 3px;
   outline: 0;
 `;
@@ -65,12 +65,12 @@ const CreateTask = styled.div`
   display: ${props => (props.activeCreate ? 'block' : 'none')};
   width: 100%;
   padding: 0 10px 10px;
-  background: ${props => props.theme.layout.layoutBg1};
+  background: ${props => props.theme.layoutBg1.color};
   textarea {
     width: 100%;
     height: 65px;
     padding: 5px 7px;
-    border: 2px solid ${props => props.theme.layout.mainColor};
+    border: 2px solid ${props => props.theme.mainColor.color};
     border-radius: 3px;
     border-bottom: 0;
     outline: 0;
@@ -85,7 +85,7 @@ const CrBtnWrapper = styled.div`
   margin-top: -10px;
   padding: 5px;
   background: white;
-  border: 2px solid ${props => props.theme.layout.mainColor};
+  border: 2px solid ${props => props.theme.mainColor.color};
   border-radius: 3px;
   border-top: 0;
   ${props =>
@@ -141,7 +141,7 @@ const ButtonCancel = styled(Button)`
 
 const ButtonCreate = styled(Button)`
   margin-left: 5px;
-  background: ${props => props.theme.layout.mainColor};
+  background: ${props => props.theme.mainColor.color};
   color: white;
   &:hover {
     background: #1d80a3;

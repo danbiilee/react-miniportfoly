@@ -3,21 +3,41 @@ const SET_COLOR = 'palette/SET_COLOR';
 export const setColor = payload => ({ type: SET_COLOR, payload });
 
 const initialState = {
-  layout: {
-    layoutBorder1: 'black',
-    layoutBg1: '#a9d2d9',
-    layoutBorder2: '#fff',
-    layoutBg2: 'lightgray',
-    cardBorder: '#a5a5a5',
-    cardBg: '#fff',
-    mainColor: '#238db3',
-    headerColor: '#333',
-    textColor: '#07698c',
+  layoutBorder1: {
+    title: '바깥 테두리',
+    color: 'black',
   },
-  component: {
-    priority: '#e03131',
-    important: '#3b5bdb',
-    notice: '#fcc419',
+  layoutBg1: {
+    title: '바깥(1) 영역',
+    color: '#a9d2d9',
+  },
+  layoutBorder2: {
+    title: '점선 테두리',
+    color: '#fff',
+  },
+  layoutBg2: {
+    title: '바깥(2) 영역',
+    color: 'lightgray',
+  },
+  cardBorder: {
+    title: '안쪽 테두리',
+    color: '#a5a5a5',
+  },
+  cardBg: {
+    title: '안쪽 영역',
+    color: '#fff',
+  },
+  mainColor: {
+    title: '메인 메뉴',
+    color: '#238db3',
+  },
+  headerColor: {
+    title: '미니포트폴리 타이틀',
+    color: '#333',
+  },
+  textColor: {
+    title: '서브페이지 메뉴',
+    color: '#07698c',
   },
 };
 
@@ -27,9 +47,9 @@ export default function palette(state = initialState, action) {
       const { key, value } = action.payload;
       return {
         ...state,
-        layout: {
-          ...state.layout,
-          [key]: value,
+        [key]: {
+          ...state[key],
+          color: value,
         },
       };
     default:

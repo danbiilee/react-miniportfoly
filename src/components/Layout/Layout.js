@@ -12,8 +12,8 @@ const BorderWrapper = styled.div`
   width: 75%;
   height: 95vh;
   padding: 25px;
-  background: ${props => props.theme.layout.layoutBg1};
-  border: 1px solid ${props => props.theme.layout.layoutBorder1};
+  background: ${props => props.theme.layoutBg1.color};
+  border: 1px solid ${props => props.theme.layoutBorder1.color};
   border-radius: 10px;
 `;
 
@@ -23,8 +23,8 @@ const BgWrapper = styled.div`
   display: flex;
   height: 100%;
   padding: 20px 8px 8px;
-  background: ${props => props.theme.layout.layoutBg2};
-  border: 2px dashed ${props => props.theme.layout.layoutBorder2};
+  background: ${props => props.theme.layoutBg2.color};
+  border: 2px dashed ${props => props.theme.layoutBorder2.color};
   border-radius: 10px;
 `;
 

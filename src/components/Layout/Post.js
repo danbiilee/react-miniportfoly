@@ -24,7 +24,7 @@ const Article = styled.article`
     justify-content: space-between;
     margin: 10px 5px;
     p:first-of-type {
-      color: ${props => props.theme.layout.textColor};
+      color: ${props => props.theme.textColor.color};
     }
     p:last-of-type {
       font-size: 0.9rem;

@@ -19,7 +19,7 @@ const SidebarBlock = styled.div`
     }
   }
   .today {
-    color: ${props => props.theme.component.priority};
+    color: #e03131;
   }
 `;
 

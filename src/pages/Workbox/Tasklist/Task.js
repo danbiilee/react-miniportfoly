@@ -35,7 +35,7 @@ const TitleWrapper = styled.div`
     margin-top: 10px;
     svg {
       margin-right: 5px;
-      color: ${props => props.theme.layout.layoutBg2};
+      color: ${props => props.theme.layoutBg2.color};
       font-size: 1.3rem;
     }
   }
@@ -45,7 +45,7 @@ const EtcWrapper = styled.div`
   display: flex;
   margin-bottom: 10px;
   padding-left: 3px;
-  color: ${props => props.theme.layout.outer};
+  color: ${props => props.theme.outer.color};
   font-size: 0.7rem;
   span {
     display: inherit;

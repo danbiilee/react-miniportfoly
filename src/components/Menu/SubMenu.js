@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
-import { setFormMode } from '../../module/formMode';
 
 const ListDiv = styled.div`
   h2 {
@@ -10,7 +9,7 @@ const ListDiv = styled.div`
     border-bottom: 1px solid gray;
     font-weight: bold;
     a {
-      color: ${props => props.theme.layout.mainColor};
+      color: ${props => props.theme.mainColor.color};
     }
   }
   ul {
@@ -25,7 +24,7 @@ const ListDiv = styled.div`
       padding-left: 15px;
     }
     a {
-      color: ${props => props.theme.layout.textColor};
+      color: ${props => props.theme.textColor.color};
       &.selected {
         font-weight: bold;
       }
@@ -35,23 +34,11 @@ const ListDiv = styled.div`
 
 const SubMenu = ({ title, list }) => {
   const match = useRouteMatch();
-  const dispatch = useDispatch();
-  const { formMode: isForm } = useSelector(state => state);
-  const handleMode = () => {
-    if (isForm) {
-      dispatch(setFormMode());
-    }
-  };
 
   return (
     <ListDiv>
       <h2>
-        <NavLink
-          exact
-          to={match.url}
-          activeClassName="selected"
-          onClick={handleMode}
-        >
+        <NavLink exact to={match.url} activeClassName="selected">
           {title}
         </NavLink>
       </h2>
@@ -59,11 +46,7 @@ const SubMenu = ({ title, list }) => {
         <ul>
           {list.map(item => (
             <li key={item.id}>
-              <NavLink
-                to={match.url + item.url}
-                activeClassName="selected"
-                onClick={handleMode}
-              >
+              <NavLink to={match.url + item.url} activeClassName="selected">
                 {item.title}
               </NavLink>
               {item.child && (
@@ -73,7 +56,6 @@ const SubMenu = ({ title, list }) => {
                       <NavLink
                         to={match.url + item.url + child.url}
                         activeClassName="selected"
-                        onClick={handleMode}
                       >
                         {child.title}
                       </NavLink>

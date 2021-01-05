@@ -8,9 +8,9 @@ const CardBlock = styled.div`
   height: 96%;
   margin-top: 10px;
   padding: 20px;
-  border: 1px solid ${props => props.theme.layout.cardBorder};
+  border: 1px solid ${props => props.theme.cardBorder.color};
   border-radius: 10px;
-  background: ${props => props.theme.layout.cardBg};
+  background: ${props => props.theme.cardBg.color};
   section {
     width: 100%;
     height: 100%;

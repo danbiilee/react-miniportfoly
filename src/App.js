@@ -8,15 +8,10 @@ import Diary from './pages/Diary';
 import Workbox from './pages/Workbox';
 
 const App = () => {
-  const { layout, component } = useSelector(state => state.palette);
+  const { palette } = useSelector(state => state);
 
   return (
-    <ThemeProvider
-      theme={{
-        layout,
-        component,
-      }}
-    >
+    <ThemeProvider theme={palette}>
       <Switch>
         <Route exact path="/">
           <Home />

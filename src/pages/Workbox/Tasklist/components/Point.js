@@ -9,11 +9,11 @@ const PointWrapper = styled.div`
     width: 7px;
     height: 7px;
     margin-left: 2px;
-    border: 1px solid ${props => props.theme.layout.layoutBg2};
+    border: 1px solid ${props => props.theme.layoutBg2.color};
     border-radius: 7px;
     &.isFull {
       border: 0;
-      background: ${props => props.theme.layout.mainColor};
+      background: ${props => props.theme.mainColor.color};
     }
   }
 `;

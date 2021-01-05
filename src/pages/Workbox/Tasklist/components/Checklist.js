@@ -6,7 +6,7 @@ import { TiPencil, TiPlus, TiTimes } from 'react-icons/ti';
 import { addChecklist, setTask } from '../../../../module/tasklists';
 
 const Wrapper = styled.div`
-  border: 1px solid ${props => props.theme.layout.layoutBg2};
+  border: 1px solid ${props => props.theme.layoutBg2.color};
   border-radius: 3px;
 `;
 
@@ -14,7 +14,7 @@ const List = styled.li`
   display: flex;
   height: 30px;
   border-radius: 3px;
-  border-bottom: 1px solid ${props => props.theme.layout.layoutBg2};
+  border-bottom: 1px solid ${props => props.theme.layoutBg2.color};
   &:last-of-type {
     border-bottom: 0;
   }
@@ -40,8 +40,8 @@ const Chkbox = styled.div`
   display: flex;
   align-items: center;
   padding-right: 10px;
-  border-right: 3px double ${props => props.theme.component.priority};
-  color: ${props => props.theme.layout.outer};
+  border-right: 3px double;
+  color: ${props => props.theme.outer.color};
   font-size: 0.9rem;
   cursor: pointer;
   &.addBtn:hover {
@@ -73,7 +73,7 @@ const Chktxt = styled.div`
 
 const Input = styled.input`
   padding: 3px 7px;
-  border: 2px solid ${props => props.theme.layout.mainColor};
+  border: 2px solid ${props => props.theme.mainColor.color};
   border: 0;
   border-radius: 3px;
 `;

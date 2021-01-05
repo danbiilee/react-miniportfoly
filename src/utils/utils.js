@@ -1,3 +1,6 @@
+export const publicUrl = process.env.PUBLIC_URL;
+
+// 날짜
 export const today = new Date().toISOString().substring(0, 10);
 export const getFormatDate = date => {
   // formate Date to String(yyyy-mm-dd)
@@ -26,3 +29,25 @@ export const getRandomHexColor = () => {
   }
   return hex;
 };
+
+// 오디오 플레이어
+export function Audio(player, playlists) {
+  this.player = player;
+  this.playlists = playlists;
+
+  this.idx = 0;
+  this.title = this.playlists[this.idx].dataset.title;
+  this.player.src = `${publicUrl}/resources/audio/${this.title}.mp3`;
+
+  this.setCurrentSong = idx => {
+    this.idx = idx;
+    this.title = this.playlists[idx].dataset.title;
+    this.player.src = `${publicUrl}/resources/audio/${this.title}.mp3`;
+  };
+
+  this.play = curTime => {
+    this.player.currentTime = curTime;
+    const startPlay = this.player.play();
+    return startPlay;
+  };
+}

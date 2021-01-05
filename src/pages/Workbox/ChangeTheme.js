@@ -228,7 +228,7 @@ const Content = React.memo(({ target }) => {
   };
 
   return (
-    <ChangeWrapper color={palette[target]}>
+    <ChangeWrapper color={palette[target]['color']}>
       {target ? (
         <ColorWrapper>
           <Swatch target={target} hexColor={hexColor} onChange={onChange} />
