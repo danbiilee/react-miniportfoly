@@ -136,7 +136,7 @@ const MusicPlayer = () => {
     const audio = audioRef.current;
 
     if (audio) {
-      console.log('mounted curSong!?!?!?!?! before play', curSong);
+      //console.log('mounted curSong!?!?!?!?! before play', curSong);
       const startPlay = audio.play(curSong.curTime);
 
       if (startPlay !== undefined) {
@@ -153,7 +153,7 @@ const MusicPlayer = () => {
   }, [curSong]);
 
   useEffect(() => {
-    console.log('first mounted!!!!!');
+    //console.log('first mounted!!!!!');
     // audio 객체 생성
     audioRef.current = new Audio(
       playerRef.current,
@@ -188,7 +188,7 @@ const MusicPlayer = () => {
 
     // 언마운트될 때 현재 재생중인 위치 저장
     return () => {
-      console.log('unmounted', audio.player.currentTime);
+      //console.log('unmounted', audio.player.currentTime);
       dispatch(
         setCurSong({
           idx: audio.idx,
@@ -230,4 +230,4 @@ const MusicPlayer = () => {
   );
 };
 
-export default MusicPlayer;
+export default React.memo(MusicPlayer);

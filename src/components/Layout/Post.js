@@ -5,10 +5,7 @@ const Article = styled.article`
   width: 100%;
   height: ${props => (props.fullHeight ? '100%' : 'max-content')};
   /* height: 88%; */
-  margin: 50px 0;
-  &:first-of-type {
-    margin-top: 30px};
-  }
+  margin: 10px 0;
   h3 {
     height: 30px;
     margin-bottom: 10px;
@@ -28,13 +25,6 @@ const Article = styled.article`
     }
     p:last-of-type {
       font-size: 0.9rem;
-    }
-  }
-  .post-contents {
-    img {
-    }
-    p {
-      padding: 20px 10px;
     }
   }
 `;

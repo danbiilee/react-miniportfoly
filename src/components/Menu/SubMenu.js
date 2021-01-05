@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const ListDiv = styled.div`
   h2 {
@@ -11,6 +10,9 @@ const ListDiv = styled.div`
     a {
       color: ${props => props.theme.mainColor.color};
     }
+  }
+  nav > ul > li > a {
+    font-weight: bold;
   }
   ul {
     display: flex;
@@ -26,6 +28,7 @@ const ListDiv = styled.div`
     a {
       color: ${props => props.theme.textColor.color};
       &.selected {
+        color: ${props => props.theme.mainColor.color};
         font-weight: bold;
       }
     }
@@ -38,7 +41,7 @@ const SubMenu = ({ title, list }) => {
   return (
     <ListDiv>
       <h2>
-        <NavLink exact to={match.url} activeClassName="selected">
+        <NavLink exact to={match.url}>
           {title}
         </NavLink>
       </h2>
@@ -46,9 +49,7 @@ const SubMenu = ({ title, list }) => {
         <ul>
           {list.map(item => (
             <li key={item.id}>
-              <NavLink to={match.url + item.url} activeClassName="selected">
-                {item.title}
-              </NavLink>
+              <NavLink to={match.url + item.url}>{item.title}</NavLink>
               {item.child && (
                 <ul>
                   {item.child.map(child => (
