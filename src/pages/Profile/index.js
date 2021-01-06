@@ -7,6 +7,8 @@ import SubMenu from '../../components/Menu/SubMenu';
 import Sidebar from '../../components/Layout/Sidebar';
 import Content from '../../components/Layout/Content';
 import Intro from './Intro';
+import People from './People';
+import Favorite from './Favorite';
 
 const PostWrapper = styled.div`
   overflow-y: auto;
@@ -54,6 +56,8 @@ const Profile = () => {
               <Route exact path={`${match.path}`} component={Intro} />
               <Route exact path={`${match.path}/intro`} component={Intro} />
               <Route path={`${match.path}/intro/:type`} component={Intro} />
+              <Route path={`${match.path}/people`} component={People} />
+              <Route path={`${match.path}/favorite`} component={Favorite} />
             </Switch>
           </PostWrapper>
         </Card>

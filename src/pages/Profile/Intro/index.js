@@ -1,13 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import Main from './Main';
 import Info from './Info';
 import AboutMe from './AboutMe';
 import Skills from './Skills';
-
-const History = ({ title }) => {
-  return <div>History</div>;
-};
+import History from './History';
 
 const Intro = ({ match }) => {
   let { type } = match.params;

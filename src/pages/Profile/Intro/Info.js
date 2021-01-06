@@ -19,6 +19,7 @@ const Wrapper = styled.div`
   p,
   ul {
     margin: 10px 0;
+    line-height: 20px;
   }
   li {
     margin: 5px 0;
@@ -92,8 +93,12 @@ const Info = ({ title }) => {
         <div className="info">
           <h4>교육사항</h4>
           <p>
+            <span className="date">[2020년 05월 - 2020년 06월]</span> 탈잉.
+            실무자에게 배우는 리액트 웹프로그래밍
+          </p>
+          <p>
             <span className="date">[2019년 08월 - 2020년 03월]</span>{' '}
-            KH정보교육원. 자바(JAVA) 프레임워크 개발자 양성과정
+            KH정보교육원. 자바 프레임워크 개발자 양성과정
           </p>
         </div>
         <div className="info">
