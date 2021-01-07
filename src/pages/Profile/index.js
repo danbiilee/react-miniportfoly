@@ -10,12 +10,6 @@ import Intro from './Intro';
 import People from './People';
 import Favorite from './Favorite';
 
-const PostWrapper = styled.div`
-  overflow-y: auto;
-  height: 100%;
-  padding: 0 20px;
-`;
-
 const Profile = () => {
   const match = useRouteMatch();
   const list = [
@@ -51,15 +45,13 @@ const Profile = () => {
       </Sidebar>
       <Content>
         <Card>
-          <PostWrapper>
-            <Switch>
-              <Route exact path={`${match.path}`} component={Intro} />
-              <Route exact path={`${match.path}/intro`} component={Intro} />
-              <Route path={`${match.path}/intro/:type`} component={Intro} />
-              <Route path={`${match.path}/people`} component={People} />
-              <Route path={`${match.path}/favorite`} component={Favorite} />
-            </Switch>
-          </PostWrapper>
+          <Switch>
+            <Route exact path={`${match.path}`} component={Intro} />
+            <Route exact path={`${match.path}/intro`} component={Intro} />
+            <Route path={`${match.path}/intro/:type`} component={Intro} />
+            <Route path={`${match.path}/people`} component={People} />
+            <Route path={`${match.path}/favorite`} component={Favorite} />
+          </Switch>
         </Card>
       </Content>
     </Layout>

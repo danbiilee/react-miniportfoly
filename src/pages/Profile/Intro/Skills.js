@@ -27,14 +27,17 @@ const Chart = styled.svg`
   width: 100%;
   height: 300px;
   overflow: hidden;
-  path {
-    storke: gray;
-  }
-  line {
-    storke: gray;
-  }
   .grid tick line {
     stroke: gray;
+  }
+  #limit {
+    stroke: #238db3;
+    stroke-width: 3;
+    stroke-dasharray: 5;
+  }
+  .value {
+    fill: #333;
+    font-size: 0.8rem;
   }
 `;
 
@@ -49,8 +52,8 @@ const Skills = ({ title }) => {
       color: '#d9a1ab',
     },
     {
-      title: 'Javascript',
-      value: 62,
+      title: 'JS',
+      value: 67,
       color: '#d9a1ab',
     },
     {
@@ -122,6 +125,17 @@ const Skills = ({ title }) => {
       .attr('height', 0)
       .attr('fill', d => d.color);
 
+    // 점수 셋팅: display none
+    barGroups
+      .append('text')
+      .attr('class', 'value')
+      .attr('id', d => d.title.substring(0, 2))
+      .attr('x', d => xScale(d.title) + xScale.bandwidth() / 2)
+      .attr('y', d => yScale(d.value) + 30)
+      .attr('text-anchor', 'middle')
+      .text(d => d.value)
+      .style('display', 'none');
+
     // 애니메이션 효과
     barGroups
       .selectAll('rect')
@@ -133,13 +147,26 @@ const Skills = ({ title }) => {
     // 마우스 이벤트
     barGroups
       .selectAll('rect')
-      .on('mouseenter', function () {
+      .on('mouseenter', function (r, i) {
         d3.select(this)
           .transition()
           .duration(300)
           .attr('opacity', 0.7)
           .attr('x', d => xScale(d.title) - 2)
           .attr('width', xScale.bandwidth() + 4);
+
+        // 점수 표시
+        d3.selectAll(`#${i.title.substring(0, 2)}`).style('display', 'block');
+
+        // 가이드 눈금선 표시
+        const y = yScale(i.value);
+        chart
+          .append('line')
+          .attr('id', 'limit')
+          .attr('x1', 0)
+          .attr('y1', y)
+          .attr('x2', width)
+          .attr('y2', y);
       })
       .on('mouseleave', function () {
         d3.select(this)
@@ -148,8 +175,19 @@ const Skills = ({ title }) => {
           .attr('opacity', 1)
           .attr('x', d => xScale(d.title))
           .attr('width', xScale.bandwidth());
+
+        d3.selectAll('.value').style('display', 'none');
+        chart.selectAll('#limit').remove();
+      });
+
+    barGroups
+      .selectAll('text')
+      .on('mouseenter', function (r, i) {
+        d3.selectAll(`#${i.title.substring(0, 2)}`).style('display', 'block');
       })
-      .on('click', function () {});
+      .on('mouseleave', function () {
+        d3.selectAll('.value').style('display', 'none');
+      });
 
     return () => {
       svg.remove();

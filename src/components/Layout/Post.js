@@ -1,10 +1,9 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const Article = styled.article`
   width: 100%;
-  height: ${props => (props.fullHeight ? '100%' : 'max-content')};
-  /* height: 88%; */
+  height: max-content;
   margin: 10px 0;
   h3 {
     height: 30px;
@@ -29,8 +28,8 @@ const Article = styled.article`
   }
 `;
 
-const Post = ({ fixed, children }) => {
-  return <Article fixed={fixed}>{children}</Article>;
+const Post = ({ children }) => {
+  return <Article>{children}</Article>;
 };
 
 export default Post;

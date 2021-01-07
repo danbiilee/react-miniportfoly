@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardBlock = styled.div`
+const Wrapper = styled.div`
   z-index: 10;
   overflow-y: auto;
   width: 100%;
@@ -21,7 +21,7 @@ const CardBlock = styled.div`
 `;
 
 const Card = ({ children }) => {
-  return <CardBlock>{children}</CardBlock>;
+  return <Wrapper>{children}</Wrapper>;
 };
 
 export default Card;

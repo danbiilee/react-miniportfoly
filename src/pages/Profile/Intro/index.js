@@ -1,4 +1,5 @@
 import React from 'react';
+import ScrollToTop from '../../../components/Layout/ScrollToTop';
 import Main from './Main';
 import Info from './Info';
 import AboutMe from './AboutMe';
@@ -33,7 +34,7 @@ const Intro = ({ match }) => {
   ];
   const { component } = intros.find(item => item.type === type);
 
-  return <>{component}</>;
+  return <ScrollToTop path={type}>{component}</ScrollToTop>;
 };
 
 export default Intro;
