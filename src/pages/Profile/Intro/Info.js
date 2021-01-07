@@ -58,7 +58,7 @@ const Info = ({ title }) => {
         </div>
         <div className="info">
           <h4>직업</h4>
-          <p>(예비)프론트엔드 개발자</p>
+          <p>프론트엔드 개발자</p>
         </div>
         <div className="info">
           <h4>휴대폰</h4>
@@ -86,19 +86,19 @@ const Info = ({ title }) => {
         <div className="info">
           <h4>이력사항</h4>
           <p>
-            <span className="date">[2020년 03월 - 2020년 12월]</span> 소프트원.
-            백엔드 개발자(사원)
+            <span className="date">[2020년 03월 - 2020년 12월]</span> 소프트원,
+            백엔드 개발자
           </p>
         </div>
         <div className="info">
           <h4>교육사항</h4>
           <p>
-            <span className="date">[2020년 05월 - 2020년 06월]</span> 탈잉.
+            <span className="date">[2020년 05월 - 2020년 06월]</span> 탈잉,
             실무자에게 배우는 리액트 웹프로그래밍
           </p>
           <p>
             <span className="date">[2019년 08월 - 2020년 03월]</span>{' '}
-            KH정보교육원. 자바 프레임워크 개발자 양성과정
+            KH정보교육원, 자바 프레임워크 개발자 양성과정
           </p>
         </div>
         <div className="info">
