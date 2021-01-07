@@ -32,7 +32,7 @@ const ToggleContent = styled.div`
 
 const ChangeSkin = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [target, setTarget] = useState('layoutBg1');
+  const [target, setTarget] = useState('bg');
   const [hexColor, setHexColor] = useState('#ffc9c9');
 
   const onClick = () => setIsOpen(!isOpen);

@@ -3,6 +3,10 @@ const SET_COLOR = 'palette/SET_COLOR';
 export const setColor = payload => ({ type: SET_COLOR, payload });
 
 const initialState = {
+  bg: {
+    title: '배경',
+    color: 'gray',
+  },
   layoutBorder1: {
     title: '바깥 테두리',
     color: 'black',

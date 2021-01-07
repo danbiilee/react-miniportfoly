@@ -1,37 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
 import Post from '../../../components/Layout/Post';
-
-const Wrapper = styled.div`
-  padding: 40px;
-  .about {
-    margin-top: 60px;
-    &:first-of-type {
-      margin-top: 0;
-    }
-  }
-  h4 {
-    margin-bottom: 20px;
-    color: #238db3;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  .txtWrapper {
-    &:not(:first-of-type) {
-      margin-top: 20px;
-    }
-  }
-  h5 {
-    margin-bottom: 10px;
-    color: #444;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-  p {
-    margin-bottom: 7px;
-    line-height: 20px;
-  }
-`;
 
 const AboutMe = ({ title }) => {
   return (
@@ -41,16 +9,16 @@ const AboutMe = ({ title }) => {
         <p>이단비</p>
         <p>2021-01-05</p>
       </div>
-      <Wrapper>
-        <div className="about">
+      <div className="content-wrapper">
+        <div className="content-inner">
           <h4>저를 소개합니다</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <p>
               안녕하세요. 저는 백엔드 개발자였다가 곧 프론트엔드 개발자가 될
               예정인, 주니어 개발자 이단비입니다. 현재는 여러 이유로 잠시 자유의
               몸이 되었으나, 작년까지는 소프트원에서 자바, 오라클, Vue.js 등을
               사용하여, 국립환경과학원 주관하에 가습기살균제 피해자들을 위한
-              건강모니터링 시스템 개발을 맡아했습니다.
+              건강모니터링 시스템 개발을 했습니다.
             </p>
             <p>
               프로젝트의 뼈대밖에 없던 4월부터 10월에 사이트가 첫 오픈을
@@ -64,9 +32,9 @@ const AboutMe = ({ title }) => {
             </p>
           </div>
         </div>
-        <div className="about">
+        <div className="content-inner">
           <h4>나란 사람은?</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <h5>:: 정신 차려보니 노력파!</h5>
             <p>
               저는 욕심이 많은 편입니다. 제가 잘 하고 싶은 것은 반드시 잘 하게
@@ -98,21 +66,21 @@ const AboutMe = ({ title }) => {
             </p>
           </div>
         </div>
-        <div className="about">
+        <div className="content-inner">
           <h4>장점, 그리고 단점</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <h5>:: 열 번 검사해도 언제나 J, 계획파</h5>
             <p>
-              저는 MBTI를 검사하면 열이면 열, J가 나오는 정리하고 계획 세우는 걸
+              저는 MBTI를 검사하면 열이면 열 J가 나오는, 정리하고 계획 세우는 걸
               좋아하는 성격을 가지고 있습니다. 제 컴퓨터 노트패드에는 일자 별로
               정리한 그 날의 할 일들이 빼곡히 정리되어있습니다. 매일 아침마다
               하루를 시작하면서, 매일 퇴근 전에 하루를 마무리하면서 목록을
               정리하곤 합니다. 이렇게 습관적으로 기록하고, 계획을 세우는 것이
               아무리 바쁘고 정신 없어도 사소한 실수를 줄이고 차분한 마음으로
-              일에 열중할 수 있도록 도와주는 요소라고 생각합니다.
+              일에 집중할 수 있도록 도와주는 요소라고 생각합니다.
             </p>
           </div>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <h5>:: 신중한 겁보</h5>
             <p>
               또 저는 지나친 돌다리도 다시 한 번 두들겨보는 취미를 가지고
@@ -132,39 +100,34 @@ const AboutMe = ({ title }) => {
             </p>
           </div>
         </div>
-        <div className="about">
+        <div className="content-inner">
           <h4>목표, 꿈, 이상향</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <h5>:: 공유하는 개발자</h5>
             <p>
               본인의 작업물을 다수와 공유하는, 그리고 그걸 부끄러워하지 않는
-              개발자가 되고 싶습니다. 단순히 사담을 적은 글에서부터 개발 관련
-              글, 개발 코드, 당장은 어디에도 쓸모없어 보이는 토이프로젝트 등...
-              그렇게 본인을 다른 개발자들에게 드러냄으로써 다양한 의견을 접할 수
-              있게 될 것이고, 그것이 실력 향상의 밑받침이 될 것이며, 결국 본인의
-              작업물에 자신감을 갖게 할 것이라 생각합니다.
+              개발자가 되고 싶습니다. 개발 관련 글에서부터 개발 코드, 당장은
+              어디에도 쓸모없어 보이는 토이프로젝트, 단순히 사담을 적은 글까지
+              말입니다. 본인을 다른 개발자들에게 드러냄으로써 다양한 의견을 접할
+              수 있게 될 것이고, 그것이 결국 실력 향상의 밑받침이 될 것이라
+              생각합니다.
             </p>
             <p>
               또 세상에 많고 많은 괴물같은 개발자들의 작업물들을 보며 끝없이
-              자극받으면서 동시에 저 또한 다른 사람들의 귀감이 될 수 있는
-              개발자가 되고 싶습니다.
+              자극받으면서 지금의 열정을 유지하고 싶습니다. 동시에 저 또한 다른
+              사람들의 귀감이 될 수 있는 개발자가 되고도 싶습니다.
             </p>
           </div>
           <div className="txtWrapper">
             <h5>:: 여유로운 사람</h5>
             <p>
-              마음이 여유로운 사람이 되고 싶습니다. 그래서 주위를 살피며 곤경에
-              처한 사람들에게 기꺼이 대가없이 도움의 손길을 내밀 수 있는 사람이
-              되고 싶습니다.
-            </p>
-            <p>
-              한편 남들과 비교하며, 그들이 그렇게 하기 때문에 그것이 당연한 줄
-              알며 사는 것은 저와 맞지 않습니다. 소신을 가지고, 저에게 가장 맞는
-              방식의 삶을 살고 싶습니다. 그러기 위해선 어떠한 상황에서도
-              본인만의 여유를 갖는 것이 중요하다고 생각합니다. 그런 의미에서
-              개발자는 비교적 주위 상황에 휘둘리지 않고 각기 다른 개인의
-              성향들을 장점으로 살려 의미있는 결과물을 만들어낼 수 있는 몇
-              안되는 직업이라 생각합니다.
+              마음이 여유로운 사람이 되고 싶습니다. 남들과 비교하며, 그들이
+              그렇게 하기 때문에 그것이 당연한 줄 알며, 똑같이 사는 것은 저와
+              맞지 않습니다. 소신을 가지고, 저에게 가장 맞는 방식의 삶을 살고
+              싶습니다. 그러기 위해선 어떠한 상황에서도 본인만의 여유를 갖는
+              것이 중요하다고 생각합니다. 그런 의미에서 개발자는 비교적 주위
+              상황에 휘둘리지 않고 각기 다른 개인의 성향들을 장점으로 살려
+              의미있는 결과물을 만들어낼 수 있는 몇 안되는 직업이라 생각합니다.
             </p>
             <p>
               그렇기 때문에 개발자는 제 천직이라 생각합니다. 5년 뒤에는 공유가
@@ -173,7 +136,7 @@ const AboutMe = ({ title }) => {
             </p>
           </div>
         </div>
-      </Wrapper>
+      </div>
     </Post>
   );
 };

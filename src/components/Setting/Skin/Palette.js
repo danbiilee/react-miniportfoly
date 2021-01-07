@@ -135,38 +135,43 @@ const Palette = ({ target, hexColor, setHexColor }) => {
 };
 
 const DefaultPalette = ({ handleHexColor }) => {
-  const defaultColors = [
-    '#e03131',
-    '#d6336c',
-    '#fd7e14',
-    '#fab005',
-    '#37b24d',
-    '#15aabf',
-    '#228be6',
-    '#7048e8',
-  ];
-  const humidColors = [
-    '#ffc9c9',
-    '#fcc2d7',
-    '#ffd8a8',
-    '#ffec99',
-    '#b2f2bb',
-    '#99e9f2',
-    '#a5d8ff',
-    '#d0bfff',
+  const colors = [
+    '#ffe3e3',
+    '#ffa8a8',
+    '#ff6b6b',
+    '#ffdeeb',
+    '#faa2c1',
+    '#f06595',
+    '#e5dbff',
+    '#b197fc',
+    '#845ef7',
+    '#d0ebff',
+    '#74c0fc',
+    '#339af0',
+    '#c3fae8',
+    '#63e6be',
+    '#20c997',
+    '#fff3bf',
+    '#ffe066',
+    '#fcc419',
+    '#ffe8cc',
+    '#ffc078',
+    '#ff922b',
+    '#f1f3f5',
+    '#f1f3f5',
+    '#dee2e6',
+    '#ced4da',
+    '#adb5bd',
+    '#868e96',
+    '#495057',
+    '#343a40',
+    '#212529',
   ];
 
   return (
     <ColorsWrapper>
       <Colors>
-        {defaultColors.map((color, index) => (
-          <Color
-            key={index}
-            color={color}
-            onClick={() => handleHexColor(color)}
-          ></Color>
-        ))}
-        {humidColors.map((color, index) => (
+        {colors.map((color, index) => (
           <Color
             key={index}
             color={color}

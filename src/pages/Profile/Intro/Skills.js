@@ -3,26 +3,6 @@ import styled from 'styled-components';
 import * as d3 from 'd3';
 import Post from '../../../components/Layout/Post';
 
-const Wrapper = styled.div`
-  padding: 20px;
-  .skill {
-    margin-top: 60px;
-    &:first-of-type {
-      margin-top: 30px;
-    }
-  }
-  h4 {
-    margin-bottom: 10px;
-    color: #238db3;
-    font-weight: bold;
-    font-size: 1.5rem;
-  }
-  p {
-    margin-bottom: 7px;
-    line-height: 20px;
-  }
-`;
-
 const Chart = styled.svg`
   width: 100%;
   height: 300px;
@@ -201,11 +181,11 @@ const Skills = ({ title }) => {
         <p>이단비</p>
         <p>2021-01-06</p>
       </div>
-      <Wrapper ref={widthRef}>
+      <div className="content-wrapper" ref={widthRef}>
         <Chart ref={svgRef} />
-        <div className="skill">
+        <div className="content-inner mt30">
           <h4>나의 첫 프론트 프로젝트</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <p>
               KH정보교육원을 수료할 당시, 중간에 짧게 HTML부터 자바스크립트까지
               학습 후 약 1주간 간단히 개인 웹페이지를 만드는 시간이 있었습니다.
@@ -220,15 +200,15 @@ const Skills = ({ title }) => {
             </p>
           </div>
         </div>
-        <div className="skill">
+        <div className="content-inner">
           <h4>삽질을 통해 얻은 교훈</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
+            <h5>:: 선택과 집중</h5>
             <p>
               위에 기재한 프로젝트를 시작으로 제 흥미와 관심이 프론트단에 많이
               기울기 시작했습니다. SI에 백엔드 개발자로 취업을 한 뒤, DB
-              작업이나 얕게나마 배포, 서버 관련 지식들도 이것 저것 주워들으며
-              일했지만 프론트단에서 작업할 때보다 지루하다는 느낌을 떨칠 수
-              없었습니다.
+              작업이나 얕게나마 배포, 서버 관련 지식들도 조금씩 배우며 일했지만
+              프론트단에서 작업할 때보다는 흥미가 떨어지는 느낌이었습니다.
             </p>
             <p>
               그러다 제가 진행할 메인 프로젝트가 정해졌고, 거기서 Vue.js를
@@ -257,9 +237,9 @@ const Skills = ({ title }) => {
             </p>
           </div>
         </div>
-        <div className="skill">
+        <div className="content-inner">
           <h4>스킬트리</h4>
-          <div className="txtWrapper">
+          <div className="txt-wrapper">
             <p>
               가장 먼저, 당당하게 `나의 주력 언어는 자바스크립트입니다`라고 말할
               수 있도록 자바스크립트에 능통해지는 것이 목표입니다. 따라서 단순히
@@ -287,7 +267,7 @@ const Skills = ({ title }) => {
             </p>
           </div>
         </div>
-      </Wrapper>
+      </div>
     </Post>
   );
 };

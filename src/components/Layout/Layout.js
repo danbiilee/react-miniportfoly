@@ -5,7 +5,8 @@ import Setting from '../Setting';
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 20px;
+  background: ${props => props.theme.bg.color};
 `;
 
 const BorderWrapper = styled.div`

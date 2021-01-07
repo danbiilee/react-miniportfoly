@@ -22,11 +22,15 @@ const FlexWrapper = styled.div`
 const ContentSection = styled.section`
   height: fit-content !important;
   h2 {
+    padding: 5px;
     margin-bottom: 10px;
     font-weight: bold;
     color: ${props => props.theme.mainColor.color};
   }
   &:first-of-type {
+    h2 {
+      margin-bottom: 5px;
+    }
     div {
       width: 100%;
       min-height: 200px;
@@ -37,16 +41,16 @@ const ContentSection = styled.section`
   }
   &:last-of-type {
     margin-top: 20px;
-    div {
-      overflow-y: auto;
-      height: 142px;
+    h2 {
+      margin-bottom: 15px;
+      border-bottom: 2px solid #eee;
     }
   }
   ul {
     line-height: 1.8;
     li {
       height: 30px;
-      border-bottom: 1px dashed gray;
+      border-bottom: 1px dashed #a5a5a5;
     }
   }
 `;
@@ -55,7 +59,7 @@ const ProfileSection = styled.section`
   height: fit-content !important;
   &:last-of-type {
     padding: 10px 0;
-    border-top: 1px dashed gray;
+    border-top: 1px dashed #a5a5a5;
     p {
       display: flex;
       align-items: center;
@@ -170,16 +174,17 @@ const Home = () => {
             </div>
           </ContentSection>
           <ContentSection>
-            <h2>한 줄 이력</h2>
-            <div>
-              <ul>
-                <li>소프트원</li>
-                <li>KH정보교육원 수료</li>
-                <li></li>
-                <li></li>
-                <li></li>
-              </ul>
-            </div>
+            <h2>한 줄 감성</h2>
+            <ul>
+              <li>싸이월드 미니홈피 감성으로 개발한 개인 미니홈피입니다.</li>
+              <li>
+                포트폴리오/이력서 용도로 기획했으며 React.js, d3.js 등을
+                사용했습니다~☆
+              </li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
           </ContentSection>
         </Card>
       </Content>
