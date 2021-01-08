@@ -11,7 +11,7 @@ const initialState = {
   ],
   curSong: {
     idx: 0,
-    title: '',
+    title: '빅뱅(Bigbang) - CAFE',
     curTime: 0,
   },
 };

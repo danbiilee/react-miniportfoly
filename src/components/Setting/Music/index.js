@@ -94,100 +94,94 @@ const MusicPlayer = () => {
   const dispatch = useDispatch();
   const { list: miniPlaylist } = useSelector(state => state.playlist);
   const { curSong } = useSelector(state => state.playlist);
+  console.log('MusicPlayer', curSong);
 
   const playerRef = useRef();
   const playlistRef = useRef();
   const audioRef = useRef(); // 리렌더링 방지
-  //const curTime = useRef();
 
   const [isOpenModal, setIsOpenModal] = useState(false); // 모달
   const [isOpenList, setIsOpenList] = useState(false); // 재생목록
-  const handleModal = () => setIsOpenModal(!isOpenModal);
   const handleList = () => setIsOpenList(!isOpenList);
 
-  const handleCurSong = useCallback(
+  const handleUserInteraction = () => {
+    const audio = audioRef.current;
+    if (audio.player.pause) {
+      audio.player.play();
+    }
+    setIsOpenModal(!isOpenModal);
+  };
+
+  // 재생정보 전부 초기화: 오디오 + 스토어
+  const initCurSong = useCallback(
     (audio, idx) => {
-      audio.setCurrentSong(idx);
+      audio.setCurrentSong(idx, 0);
       dispatch(
         setCurSong({
           idx: audio.idx,
           title: audio.title,
-          curTime: !idx ? 0 : audio.player.currentTime,
+          curTime: 0,
         }),
       );
     },
     [dispatch],
   );
 
-  const handleAutoplay = () => {
-    const audio = audioRef.current;
-    // 중지되어있으면 재생시키기
+  // 다음 곡으로 이동
+  const moveToNextSong = (audio, idx) => {
+    initCurSong(audio, idx);
     if (audio.player.pause) {
-      audio.play(curSong.curTime);
+      audio.player.play(); // 자동 재생
     }
-    handleModal();
   };
 
-  console.log('MusicPlayer', curSong);
-
-  // 변경된 curSong.curTime 적용해서 재생시킴
+  // 빈 deps: 처음 마운트, 언마운트 될 때만 실행
   useEffect(() => {
-    const audio = audioRef.current;
-
-    if (audio) {
-      //console.log('mounted curSong!?!?!?!?! before play', curSong);
-      const startPlay = audio.play(curSong.curTime);
-
-      if (startPlay !== undefined) {
-        startPlay.catch(e => {
-          // 자동 재생 처리
-          if (e.name === 'NotAllowedError') {
-            if (!isOpenModal) {
-              handleModal();
-            }
-          }
-        });
-      }
-    }
-  }, [curSong]);
-
-  useEffect(() => {
-    //console.log('first mounted!!!!!');
     // audio 객체 생성
     audioRef.current = new Audio(
       playerRef.current,
       playlistRef.current.childNodes,
     );
     const audio = audioRef.current;
+    audio.setCurrentSong(curSong.idx, curSong.curTime);
 
-    // 마운트 후 재생목록 첫 번째 음악 재생, state에 저장
-    if (!curSong.title) {
-      handleCurSong(audio, 0);
-    } else {
-      audio.setCurrentSong(curSong.idx);
+    console.log('mount', audio);
+
+    // 페이지 마운트 후 자동 재생 처리
+    const playPromise = audio.player.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(e => {
+        // 자동 재생 실패
+        if (e.name === 'NotAllowedError') {
+          if (!isOpenModal) {
+            // 재동 재생 위한 사용자 인터랙션 유도
+            setIsOpenModal(!isOpenModal);
+          }
+        }
+      });
     }
 
     // 재생목록 반복
     audio.player.addEventListener('ended', () => {
       let idx = audio.idx;
       idx++;
+
       if (idx === audio.playlists.length) {
         idx = 0;
       }
 
-      handleCurSong(audio, idx);
+      moveToNextSong(audio, idx);
     });
 
     // 재생목록 클릭
     audio.playlists.forEach((item, idx) => {
       item.addEventListener('click', () => {
-        handleCurSong(audio, idx);
+        moveToNextSong(audio, idx);
       });
     });
 
-    // 언마운트될 때 현재 재생중인 위치 저장
+    // 언마운트될 때 현재 재생중인 곡 정보 저장
     return () => {
-      //console.log('unmounted', audio.player.currentTime);
       dispatch(
         setCurSong({
           idx: audio.idx,
@@ -196,12 +190,18 @@ const MusicPlayer = () => {
         }),
       );
     };
-  }, []); // 빈 deps: 마운트, 언마운트 될 때만 실행
+  }, []);
+
+  // 재생시간 업데이트되면 오디오 객체에도 반영
+  useEffect(() => {
+    const audio = audioRef.current;
+    audio.setCurTime(curSong.curTime);
+  }, [curSong.curTime]);
 
   return (
     <Wrapper>
       <Modal isOpen={isOpenModal} width={100} height={100} bg="lightblue">
-        <PlayButton onClick={handleAutoplay}>🎶</PlayButton>
+        <PlayButton onClick={handleUserInteraction}>🎶</PlayButton>
       </Modal>
       <TitleWrapper>
         🎶 <Title>{curSong.title}</Title>
