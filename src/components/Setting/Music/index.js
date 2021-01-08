@@ -1,7 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { MdPlayArrow } from 'react-icons/md';
 import { Audio } from '../../../utils/utils';
 import { setCurSong } from '../../../module/playlist';
 import Modal from '../../Modal/Modal';
