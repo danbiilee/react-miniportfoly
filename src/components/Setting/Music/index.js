@@ -94,7 +94,6 @@ const MusicPlayer = () => {
   const dispatch = useDispatch();
   const { list: miniPlaylist } = useSelector(state => state.playlist);
   const { curSong } = useSelector(state => state.playlist);
-  console.log('MusicPlayer', curSong);
 
   const playerRef = useRef();
   const playlistRef = useRef();
@@ -144,8 +143,6 @@ const MusicPlayer = () => {
     );
     const audio = audioRef.current;
     audio.setCurrentSong(curSong.idx, curSong.curTime);
-
-    console.log('mount', audio);
 
     // 페이지 마운트 후 자동 재생 처리
     const playPromise = audio.player.play();
