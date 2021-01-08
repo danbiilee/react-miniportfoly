@@ -4,7 +4,7 @@
 ![badge coverletter](https://img.shields.io/badge/for-📨coverletter-238db3)
 
 
-**미니포트폴리**는 리액트로 개발한 포트폴리오 및 이력서 용도의 웹 사이트입니다.
+미니포트폴리는 리액트로 개발한 포트폴리오 및 이력서 용도의 웹 사이트입니다.
 - **Concept**: 싸이월드 미니홈피의 레이아웃, 디자인 및 감성을 담았습니다. 
 - **Contents**: 이력과 자기 소개, 포트폴리오에 대한 내용을 담았습니다. 
 
@@ -28,7 +28,7 @@
 ![badge react](https://img.shields.io/badge/editor-vsCode-ff6b6b?logo=visual-studio-code)
 
 ![badge react](https://img.shields.io/badge/code-react-238db3?logo=react&logoColor=FFFFFF)
-![badge reactRedux](https://img.shields.io/badge/code-reactRedux-238db3?logo=redux)
+![badge redux](https://img.shields.io/badge/code-redux-238db3?logo=redux)
 ![badge styledComponents](https://img.shields.io/badge/code-styledComponents-238db3?logo=styled-components&logoColor=FFFFFF)
 ![badge d3](https://img.shields.io/badge/code-d3-238db3?logo=d3.js&logoColor=FFFFFF)
 
@@ -40,7 +40,7 @@
 
 ## Features
 
-### ◽ BGM 
+### ◽BGM 
 사이트에 접속해 있는 동안 BGM이 끊기지 않고 자동재생 됩니다.
 
 `React-Redux`를 이용해 현재 재생중인 음악의 정보를 담아두고, 페이지가 이동할 때마다 반영되도록 했습니다.  
@@ -49,8 +49,8 @@
 
 [![playlist](./docs/img/playlist.gif)](./docs/features/bgm.md)
 
-### ◽ 배경 바꾸기
-### ◽ scrollToTop
-### ◽ D3 차트
+### ◽배경 바꾸기
+### ◽scrollToTop
+### ◽D3 차트
 
 
