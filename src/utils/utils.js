@@ -14,6 +14,8 @@ export const getRandomHexColor = () => {
 export function Audio(player, playlists) {
   this.player = player;
   this.playlists = playlists;
+  this.idx = 0;
+  this.title = '';
 
   this.setCurTime = curTime => {
     this.player.currentTime = curTime;
