@@ -14,12 +14,13 @@
 ![main](./docs/img/capture_main.gif)
 
 ## 📌구성
-- [개발 환경](#setting)  
-- [기능](#feat) 
+- [개발 환경](#📌개발-환경)  
+- [기능](#기능) 
   - [BGM](#bgm)
   - [배경 바꾸기](#change-skin)
   - [scrollToTop](#scroll-to-top)
   - [d3.js 차트](#d3)
+- [설치 및 배포](#install)
 
 ## 📌개발 환경 
 > ❕ 크로스 브라우징 및 반응형은 고려하지 않았습니다.
