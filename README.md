@@ -17,8 +17,8 @@
 - [Features](#features) 
   - [BGM](#bgm)
   - [배경 바꾸기](#배경-바꾸기)
-  - [scrollToTop](#scrollToTop)
-  - [D3 차트](#d3-차트)
+  - [스크롤 상단 초기화](#스크롤-상단-초기화)
+  - [D3.js](#d3.js)
 
 
 
@@ -43,8 +43,6 @@
 ### ◽BGM 
 사이트에 접속해 있는 동안 BGM이 끊기지 않고 자동재생 됩니다.
 
-리덕스를 이용해 현재 재생중인 음악의 정보를 담아두고, 페이지가 이동할 때마다 반영되도록 했습니다.  
-
 > 아래 이미지를 클릭하면 상세 코드를 확인할 수 있습니다.
 
 [![playlist](./docs/img/playlist.gif)](./docs/features/bgm.md)
@@ -58,9 +56,25 @@
 [![changeSkin](./docs/img/changeSkin.gif)](./docs/features/changeSkin.md)
 
 
-### ◽scrollToTop
+### ◽스크롤 상단 초기화
+리액트에서 페이지를 이동하는 경우 이전 페이지의 스크롤 위치가 그대로 남아있게 됩니다. 이를 위해 페이지 이동 시 스크롤을 상단으로 초기화해주는 컴포넌트를 만들어 사용했습니다. 
+
+> 아래 이미지를 클릭하면 상세 코드를 확인할 수 있습니다.
+
+[![◽scrollToTop](./docs/img/scroll.gif)](./docs/features/scrollToTop.md)
 
 
-### ◽D3 차트
+### ◽D3.js
 
+D3.js 라이브러리를 이용해 기술과 히스토리 페이지에 차트를 추가했습니다. 
+
+#### 스킬
+> 아래 이미지를 클릭하면 상세 코드를 확인할 수 있습니다.
+
+[![chart-skill](./docs/img/chart-skill.gif)](./docs/features/chart-skill.md)
+
+#### 히스토리
+> 아래 이미지를 클릭하면 상세 코드를 확인할 수 있습니다.
+
+[![chart-his](./docs/img/chart-his.gif)](./docs/features/chart-his.md)
 
