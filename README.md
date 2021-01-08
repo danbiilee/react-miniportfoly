@@ -12,7 +12,7 @@
 
 
 
-## 📌 Table of Contents
+## Table of Contents
 - [Technologies](#technologies)  
 - [Features](#features) 
   - [BGM](#bgm)
@@ -22,7 +22,7 @@
 
 
 
-## 📌 Technologies
+## Technologies
 ![badge react](https://img.shields.io/badge/os-window-ff6b6b?logo=windows)
 ![badge react](https://img.shields.io/badge/browser-chrome-ff6b6b?logo=google-chrome&logoColor=FFFFFF)
 ![badge react](https://img.shields.io/badge/editor-vsCode-ff6b6b?logo=visual-studio-code)
@@ -38,7 +38,7 @@
 
 
 
-## 📌 Features
+## Features
 
 ### ◽ BGM 
 사이트에 접속해 있는 동안 BGM이 끊기지 않고 자동재생 됩니다.
