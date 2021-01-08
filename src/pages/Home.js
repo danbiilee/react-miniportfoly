@@ -127,10 +127,7 @@ const Home = () => {
         <Card>
           <FlexWrapper>
             <ProfileSection>
-              <img
-                src={publicUrl + '/resources/img/profile.jpg'}
-                alt="profile"
-              />
+              <img src={publicUrl + '/resources/img/memo_.jpg'} alt="profile" />
               <LinkTitle onClick={goGithub}>
                 <MdLink />
                 Github
