@@ -21,4 +21,4 @@ const Setting = () => {
   );
 };
 
-export default Setting;
+export default React.memo(Setting);
