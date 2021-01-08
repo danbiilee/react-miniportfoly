@@ -6,7 +6,7 @@ import Palette from './Palette';
 
 const Wrapper = styled.div`
   margin-top: 10px;
-  background: #fff;
+  background: #eee;
 `;
 
 const ToggleHeader = styled.div`
