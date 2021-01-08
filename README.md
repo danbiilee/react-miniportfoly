@@ -43,14 +43,24 @@
 ### ◽BGM 
 사이트에 접속해 있는 동안 BGM이 끊기지 않고 자동재생 됩니다.
 
-`React-Redux`를 이용해 현재 재생중인 음악의 정보를 담아두고, 페이지가 이동할 때마다 반영되도록 했습니다.  
+리덕스를 이용해 현재 재생중인 음악의 정보를 담아두고, 페이지가 이동할 때마다 반영되도록 했습니다.  
 
 > 아래 이미지를 클릭하면 상세 코드를 확인할 수 있습니다.
 
 [![playlist](./docs/img/playlist.gif)](./docs/features/bgm.md)
 
+
 ### ◽배경 바꾸기
+사이트의 배경 및 레이아웃 요소들의 컬러를 변경할 수 있는 기능입니다. 
+
+> 아래 이미지를 클릭하면 상세 코드를 확인할 수 있습니다.
+
+[![changeSkin](./docs/img/changeSkin.gif)](./docs/features/changeSkin.md)
+
+
 ### ◽scrollToTop
+
+
 ### ◽D3 차트
 
 
