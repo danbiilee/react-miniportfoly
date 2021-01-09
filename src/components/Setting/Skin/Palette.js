@@ -29,21 +29,6 @@ const WhiteWrapper = styled.div`
   background: #fff;
 `;
 
-const ColorsWrapper = styled.div``;
-
-const Colors = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 10px 0;
-`;
-
-const Color = styled.li`
-  width: 25px;
-  height: 25px;
-  background: ${props => props.color};
-  cursor: pointer;
-`;
-
 const SwatchWrapper = styled.div`
   display: flex;
 `;
@@ -65,6 +50,11 @@ const SwatchInfo = styled.div`
   }
 `;
 
+const InfoTxt = styled.p`
+  font-size: 8px;
+  color: #999;
+`;
+
 const Buttons = styled.div`
   margin-top: 10px;
 `;
@@ -77,6 +67,19 @@ const Button = styled.button`
   font-weight: bold;
   font-size: 0.8rem;
   outline: 0;
+  cursor: pointer;
+`;
+
+const Colors = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px 0 3px;
+`;
+
+const Color = styled.li`
+  width: 25px;
+  height: 25px;
+  background: ${props => props.color};
   cursor: pointer;
 `;
 
@@ -128,6 +131,7 @@ const Palette = ({ target, hexColor, setHexColor }) => {
             </Buttons>
           </SwatchInfo>
         </SwatchWrapper>
+        <InfoTxt>↑ 스와치를 클릭하여 컬러를 선택할 수도 있습니다!</InfoTxt>
         <SwatchBook handleHexColor={handleHexColor} />
       </WhiteWrapper>
     </Wrapper>
@@ -169,17 +173,15 @@ const SwatchBook = ({ handleHexColor }) => {
   ];
 
   return (
-    <ColorsWrapper>
-      <Colors>
-        {colors.map((color, index) => (
-          <Color
-            key={index}
-            color={color}
-            onClick={() => handleHexColor(color)}
-          ></Color>
-        ))}
-      </Colors>
-    </ColorsWrapper>
+    <Colors>
+      {colors.map((color, index) => (
+        <Color
+          key={index}
+          color={color}
+          onClick={() => handleHexColor(color)}
+        ></Color>
+      ))}
+    </Colors>
   );
 };
 
