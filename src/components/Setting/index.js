@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   font-size: 0.9rem;
   & > div {
     padding: 10px;
+    border: 1px solid #a5a5a5;
     border-radius: 5px;
   }
 `;
