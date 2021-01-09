@@ -23,3 +23,6 @@ const ScrollToTop = ({ path, children }) => { // 1
 >- `${match.path}/intro/:type`
 2. 스크롤을 제어하기 위해 `useRef` 훅을 이용해 `<div>` DOM을 변수에 담아둡니다. 
 3. 그리고 `useEffect` 훅의 배열에 전달받은 path를 넣어주면, path가 바뀔 때마다(페이지 주소가 바뀔 때마다) 훅 안의 코드를 실행하게 됩니다. 
+
+👉 결과입니다! 
+![◽scrollToTop](../img/scroll.gif)
