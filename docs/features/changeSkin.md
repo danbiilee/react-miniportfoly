@@ -286,6 +286,7 @@ const Palette = ({ target, hexColor, setHexColor }) => {
             </Buttons>
           </SwatchInfo>
         </SwatchWrapper>
+        <InfoTxt>↑ 스와치를 클릭하여 컬러를 선택할 수도 있습니다!</InfoTxt>
         <SwatchBook handleHexColor={handleHexColor} />
       </WhiteWrapper>
     </Wrapper>
