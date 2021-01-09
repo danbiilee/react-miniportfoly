@@ -76,8 +76,10 @@ const History = ({ title }) => {
     const chart = svg.append('g').attr('transform', `translate(40, 20)`);
 
     const margin = 60;
-    const width = widthRef.current.clientWidth - margin * 2; // 화면 사이즈에 맞춤
+    // width: 렌더링될 때의 화면 너비에 맞춤
+    const width = widthRef.current.clientWidth - margin * 2;
 
+    // scaleTime() 사용
     const xScale = d3
       .scaleTime()
       .range([0, width])
@@ -222,12 +224,12 @@ const History = ({ title }) => {
               </p>
               <p>
                 다행히 기한 내에 작업을 완료해 무사히 사이트 오픈을 했고, PM에게
-                `군말 없이 잘 따라줬다, 애썼다`는 칭찬을 들을 수
-                있었습니다. 또한 본사에서 사원끼리 지방 출장을 보내던 때부터
-                우리 팀에 대한 우려가 많았는데, 프로젝트를 완료한 뒤에는
-                대표님께서 직접 전산실에 방문하셔서 수고했다고 말씀해주시는 걸
-                보면서 비록 우당탕탕이긴 했지만 그래도 잘 해낸 게 맞구나라는 생각에
-                제 자신이 너무 대견하고 뿌듯했습니다.
+                `군말 없이 잘 따라줬다, 애썼다`는 칭찬을 들을 수 있었습니다.
+                또한 본사에서 사원끼리 지방 출장을 보내던 때부터 우리 팀에 대한
+                우려가 많았는데, 프로젝트를 완료한 뒤에는 대표님께서 직접
+                전산실에 방문하셔서 수고했다고 말씀해주시는 걸 보면서 비록
+                우당탕탕이긴 했지만 그래도 잘 해낸 게 맞구나라는 생각에 제
+                자신이 너무 대견하고 뿌듯했습니다.
               </p>
             </div>
           </div>

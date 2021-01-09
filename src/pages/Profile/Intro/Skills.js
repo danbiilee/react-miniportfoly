@@ -28,22 +28,22 @@ const Skills = ({ title }) => {
   const skillData = [
     {
       title: 'HTML & CSS',
-      value: 75,
+      value: 65,
       color: '#d9a1ab',
     },
     {
       title: 'JS',
-      value: 67,
+      value: 70,
       color: '#d9a1ab',
     },
     {
       title: 'React.js',
-      value: 45,
+      value: 52,
       color: '#ceb5df',
     },
     {
       title: 'Vue.js',
-      value: 32,
+      value: 35,
       color: '#ceb5df',
     },
     {
@@ -53,7 +53,7 @@ const Skills = ({ title }) => {
     },
     {
       title: 'Java',
-      value: 53,
+      value: 50,
       color: '#dcdfb5',
     },
     {
@@ -73,9 +73,11 @@ const Skills = ({ title }) => {
     const chart = svg.append('g').attr('transform', `translate(40, 20)`);
 
     const margin = 50;
-    const width = widthRef.current.clientWidth - margin * 2; // 화면 사이즈에 맞춤
+    // width: 렌더링될 때의 화면 너비에 맞춤
+    const width = widthRef.current.clientWidth - margin * 2;
     const height = 350 - margin * 2;
 
+    // scaleLinear() 사용
     const yScale = d3.scaleLinear().range([height, 0]).domain([0, 100]);
     const xScale = d3
       .scaleBand()
