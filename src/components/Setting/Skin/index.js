@@ -35,13 +35,11 @@ const ChangeSkin = () => {
   const [target, setTarget] = useState('bg');
   const [hexColor, setHexColor] = useState('#ffc9c9');
 
-  const onClick = () => setIsOpen(!isOpen);
-
   return (
     <Wrapper>
       <ToggleHeader>
         <h2>배경 바꾸기</h2>
-        <ToggleButton onClick={onClick}>
+        <ToggleButton onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
         </ToggleButton>
       </ToggleHeader>

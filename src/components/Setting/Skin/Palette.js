@@ -92,8 +92,8 @@ const Palette = ({ target, hexColor, setHexColor }) => {
   // 스와치(input[type=color]) 컬러 변경
   const onChange = e => setHexColor(e.target.value);
 
-  // 리덕스 스토어 palette.layout 컬러 변경
-  const handleSkin = () => {
+  // 리덕스 스토어 palette 컬러 변경
+  const changePaletteColor = () => {
     dispatch(
       setColor({
         key: target,
@@ -120,21 +120,21 @@ const Palette = ({ target, hexColor, setHexColor }) => {
                 type="button"
                 onClick={() => handleHexColor(getRandomHexColor())}
               >
-                <MdCached title="RANDOM!" />
+                <MdCached />
               </Button>
-              <Button type="button" onClick={handleSkin}>
-                <MdDone title="APPLY!" />
+              <Button type="button" onClick={changePaletteColor}>
+                <MdDone />
               </Button>
             </Buttons>
           </SwatchInfo>
         </SwatchWrapper>
-        <DefaultPalette hexColor={hexColor} handleHexColor={handleHexColor} />
+        <SwatchBook handleHexColor={handleHexColor} />
       </WhiteWrapper>
     </Wrapper>
   );
 };
 
-const DefaultPalette = ({ handleHexColor }) => {
+const SwatchBook = ({ handleHexColor }) => {
   const colors = [
     '#ffe3e3',
     '#ffa8a8',
