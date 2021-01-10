@@ -155,10 +155,6 @@ const Skills = ({ title }) => {
       .on('mouseleave', function () {
         d3.selectAll('.value').style('display', 'none');
       });
-
-    return () => {
-      svg.remove();
-    };
   }, []);
 
   // code...

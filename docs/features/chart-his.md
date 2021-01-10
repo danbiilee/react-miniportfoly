@@ -89,21 +89,7 @@ const History = ({ title }) => {
       .on('mouseleave', function (r, i) {
         d3.select(this).transition().duration(300).attr('opacity', 1);
         d3.selectAll(`#${i.subTitle}`).style('display', 'none');
-      })
-      .on('click', function (r, i) {
-        // 알림문구 삭제
-        document.querySelector('#info').style.display = 'none';
-        // 해당 내용 오픈
-        document
-          .querySelectorAll('.content-inner')
-          .forEach(item => (item.style.display = 'none'));
-        const content = document.querySelector(`#${i.title}`);
-        content.style.display = 'block';
       });
-
-    return () => {
-      svg.remove();
-    };
   }, []);
 
   // code...
