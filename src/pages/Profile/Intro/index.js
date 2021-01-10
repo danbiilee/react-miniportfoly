@@ -2,9 +2,8 @@ import React from 'react';
 import ScrollToTop from '../../../components/Layout/ScrollToTop';
 import Main from './Main';
 import Info from './Info';
-import AboutMe from './AboutMe';
-import Skills from './Skills';
-import History from './History';
+import Dev from './Dev';
+import Qna from './Qna';
 
 const Intro = ({ match }) => {
   let { type } = match.params;
@@ -16,20 +15,16 @@ const Intro = ({ match }) => {
       component: <Main />,
     },
     {
-      type: 'info',
+      type: 'default',
       component: <Info title="기본정보" />,
     },
     {
-      type: 'aboutMe',
-      component: <AboutMe title="소개" />,
+      type: 'dev',
+      component: <Dev title="기술 및 히스토리" />,
     },
     {
-      type: 'skills',
-      component: <Skills title="기술" />,
-    },
-    {
-      type: 'history',
-      component: <History title="히스토리" />,
+      type: 'qna',
+      component: <Qna title="TMI 자문자답" />,
     },
   ];
   const { component } = intros.find(item => item.type === type);

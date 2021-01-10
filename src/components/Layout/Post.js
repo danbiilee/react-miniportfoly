@@ -37,6 +37,9 @@ const Wrapper = styled.div`
     &.mt30 {
       margin-top: 30px;
     }
+    &.mt60 {
+      margin-top: 60px;
+    }
     h4 {
       margin-bottom: 20px;
       color: #238db3;
@@ -57,6 +60,12 @@ const Wrapper = styled.div`
     p {
       margin-bottom: 8px;
       line-height: 21px;
+    }
+    .date {
+      margin-right: 5px;
+      color: #aaa;
+      font-weight: bold;
+      font-size: 0.95rem;
     }
   }
 `;

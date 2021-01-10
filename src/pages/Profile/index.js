@@ -18,10 +18,9 @@ const Profile = () => {
       title: '👩‍💻내 소개',
       url: '/intro',
       child: [
-        { id: 1, title: '기본정보', url: '/info' },
-        { id: 2, title: '소개', url: '/aboutMe' },
-        { id: 3, title: '기술', url: '/skills' },
-        { id: 4, title: '히스토리', url: '/history' },
+        { id: 1, title: '기본정보', url: '/default' },
+        { id: 3, title: '기술 및 히스토리', url: '/dev' },
+        { id: 4, title: 'TMI 자문자답', url: '/qna' },
       ],
     },
     {

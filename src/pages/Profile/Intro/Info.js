@@ -57,8 +57,20 @@ const Info = ({ title }) => {
           <p>경기도 안양시</p>
         </div>
         <div className="info">
-          <h4>직업</h4>
-          <p>프론트엔드 개발자</p>
+          <h4>MBTI</h4>
+          <p>INFJ 혹은 INTJ</p>
+        </div>
+        <div className="info">
+          <h4>취미</h4>
+          <ul>
+            <li>고양이, 강아지, 귀여운 애기들 사진 보기</li>
+            <li>영화보기</li>
+            <li>소설 및 만화책 읽기</li>
+            <li>좋은 음악 찾기</li>
+            <li>필름카메라 촬영하기</li>
+            <li>가정용 미싱으로 가방만들기</li>
+            <li>코바늘, 대바늘 뜨기</li>
+          </ul>
         </div>
         <div className="info">
           <h4>휴대폰</h4>
@@ -80,47 +92,6 @@ const Info = ({ title }) => {
               <a href="https://velog.io/@dblee" target="_blank">
                 블로그
               </a>
-            </li>
-          </ul>
-        </div>
-        <div className="info">
-          <h4>이력사항</h4>
-          <p>
-            <span className="date">[2020년 03월 - 2020년 12월]</span> 소프트원,
-            백엔드 개발자
-          </p>
-        </div>
-        <div className="info">
-          <h4>교육사항</h4>
-          <p>
-            <span className="date">[2020년 05월 - 2020년 06월]</span> 탈잉,
-            실무자에게 배우는 리액트 웹프로그래밍
-          </p>
-          <p>
-            <span className="date">[2019년 08월 - 2020년 03월]</span>{' '}
-            KH정보교육원, 자바 프레임워크 개발자 양성과정
-          </p>
-        </div>
-        <div className="info">
-          <h4>학력사항</h4>
-          <ul>
-            <li>
-              <span className="date">[2012년 03월 - 2015년 02월]</span>{' '}
-              한양여자대학교 니트패션디자인과 졸업
-            </li>
-            <li>
-              <span className="date">[2010년 05월]</span> 고등학교 검정고시
-            </li>
-          </ul>
-        </div>
-        <div className="info">
-          <h4>자격증</h4>
-          <ul>
-            <li>
-              <span className="date">[2019년 12월]</span> SQLD
-            </li>
-            <li>
-              <span className="date">[2016년 07월]</span> 정보처리산업기사
             </li>
           </ul>
         </div>
