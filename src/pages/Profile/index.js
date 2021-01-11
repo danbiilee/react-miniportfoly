@@ -1,6 +1,5 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
-import styled from 'styled-components';
 import Layout from '../../components/Layout/Layout';
 import Card from '../../components/Layout/Card';
 import SubMenu from '../../components/Menu/SubMenu';

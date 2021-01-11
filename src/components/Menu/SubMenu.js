@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useRouteMatch } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 const ListDiv = styled.div`
   h2 {
