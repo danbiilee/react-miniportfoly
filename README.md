@@ -5,7 +5,6 @@
 ![badge portfolio](https://img.shields.io/badge/for-🤹‍portfolio-ff6b6b)
 
 
-미니포트폴리는 리액트로 개발한 이력서 및 포트폴리오 용도의 웹 사이트입니다.
 - **Concept**: 싸이월드 미니홈피의 레이아웃, 디자인 및 감성을 담았습니다. 
 - **Contents**: 실제 미니홈피처럼 개인적인 정보(TMI😅)들을 담았습니다. 
 
@@ -24,7 +23,7 @@
 
 
 ## Technologies
-> ❕ 크로스 브라우징 및 반응형은 고려하지 않았습니다.
+> ❕ 크로스 브라우징 및 반응형은 고려하지 않았습니다.  
 > 
 ![badge react](https://img.shields.io/badge/os-window-ff6b6b?logo=windows)
 ![badge react](https://img.shields.io/badge/browser-chrome-ff6b6b?logo=google-chrome&logoColor=FFFFFF)
