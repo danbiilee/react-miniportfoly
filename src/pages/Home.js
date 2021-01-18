@@ -115,7 +115,7 @@ const LinkTitle = styled.p`
 
 const Home = () => {
   const goGithub = () => {
-    window.location.href = 'https://github.com/danbiilee';
+    window.location.href = 'https://github.com/danbiilee/react-miniportfoly';
   };
   const goVelog = () => {
     window.location.href = 'https://velog.io/@dblee';
@@ -173,9 +173,9 @@ const Home = () => {
           <ContentSection>
             <h2>한 줄 감성</h2>
             <ul>
-              <li>이력서/자소서/포트폴리오 용도의 미니포트폴리입니다~☆</li>
               <li>싸이월드 미니홈피 감성으로 기획, 개발했습니다~☆</li>
-              <li></li>
+              <li>프로필 페이지를 구경해주세요~☆</li>
+              <li>배경도 바꿀 수 있답니다~☆</li>
               <li></li>
               <li></li>
             </ul>
