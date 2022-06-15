@@ -13,7 +13,7 @@ const Nav = styled.nav`
       width: 85px;
       margin-bottom: 2px;
       padding: 10px 10px 10px 15px;
-      background: ${props => props.theme.mainColor.color};
+      background: ${(props) => props.theme.mainColor.color};
       border: 1px solid #a5a5a5;
       border-radius: 10px;
       color: #fff;
@@ -39,6 +39,11 @@ function MainMenu() {
         <li>
           <NavLink to="/profile" activeClassName="selected">
             프로필
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/album" activeClassName="selected">
+            앨범
           </NavLink>
         </li>
       </ul>
