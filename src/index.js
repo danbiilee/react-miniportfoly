@@ -7,7 +7,11 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './module';
 import { composeWithDevTools } from 'redux-devtools-extension';
+
 import 'swiper/swiper.scss';
+import 'swiper/modules/free-mode/free-mode.scss';
+import 'swiper/modules/navigation/navigation.scss';
+import 'swiper/modules/thumbs/thumbs.scss';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
