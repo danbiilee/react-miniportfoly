@@ -7,6 +7,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import rootReducer from './module';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import 'swiper/swiper.scss';
 
 const store = createStore(rootReducer, composeWithDevTools());
 
@@ -16,7 +17,7 @@ ReactDOM.render(
       <App />
     </BrowserRouter>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
