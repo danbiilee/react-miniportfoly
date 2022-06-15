@@ -17,6 +17,7 @@
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "styled-components": "^5.2.1",
+    "swiper": "^8.2.4",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
@@ -45,5 +46,8 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://danbiilee.github.io/react-miniportfoly"
+  "homepage": "https://danbiilee.github.io/react-miniportfoly",
+  "devDependencies": {
+    "sass": "^1.52.3"
+  }
 }
